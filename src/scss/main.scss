@@ -4,4 +4,6 @@
 @use "settings" as *;
 @use "mixins" as mixins;
 // подключения компонентов страницы
+@use "./components/button" as *;
 @use "./components/header" as *;
+@use "./components/hero" as *;

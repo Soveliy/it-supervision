@@ -1,4 +1,32 @@
 // ваш код
-body {
-  color: var(--black);
+.header {
+  position: fixed;
+  top: 2.5rem;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &__menu {
+    padding: 22px 60px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    background: var(--white);
+    width: max-content;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 100px;
+  }
+  &__list {
+    display: flex;
+    gap: 40px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+  &__link {
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--black);
+  }
 }
