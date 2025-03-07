@@ -1,0 +1,27 @@
+.offer {
+  position: relative;
+  &__picture {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 107%;
+    margin: 0;
+  }
+  &__desc {
+    margin: 0;
+    font-size: 36px;
+    line-height: normal;
+  }
+}

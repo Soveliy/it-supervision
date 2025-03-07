@@ -1,0 +1,27 @@
+.experts {
+  &__row {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -60px -40px;
+  }
+  &__item-container {
+    padding: 60px 40px;
+    width: 33.3%;
+    box-sizing: border-box;
+    &:nth-child(-n + 3) {
+      border-bottom: 2px solid var(--gray-light);
+    }
+  }
+  &-item {
+    &__title {
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    &__desc {
+      font-size: 24px;
+    }
+  }
+}
