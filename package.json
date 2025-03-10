@@ -66,6 +66,7 @@
     "simplebar": "^6.3.0",
     "swiped-events": "^1.2.0",
     "swiper": "^11.2.1",
-    "typed.js": "^2.1.0"
+    "typed.js": "^2.1.0",
+    "vanilla-marquee": "^1.1.2"
   }
 }

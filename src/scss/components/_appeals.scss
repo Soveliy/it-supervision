@@ -1,0 +1,32 @@
+.appeals {
+  position: relative;
+  &__list {
+    clear: both;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .js-marquee {
+      display: flex;
+      gap: 20px;
+      // float: none !important;
+    }
+  }
+  &__list + &__list {
+    margin-top: 20px;
+  }
+  &__item {
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    font-size: 24px;
+    line-height: 1;
+    border-radius: 16px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    background-color: var(--white);
+  }
+  &__button {
+    margin-top: 60px;
+  }
+}
