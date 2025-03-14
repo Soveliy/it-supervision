@@ -1,0 +1,38 @@
+.how-we-work {
+  position: relative;
+  &__grid {
+    display: flex;
+    overflow: auto;
+    gap: 40px;
+    counter-reset: item;
+  }
+  &-item {
+    min-width: 503px;
+    max-width: 503px;
+    flex-shrink: 0;
+    &:before {
+      counter-increment: item; /* Инкрементирует счётчик*/
+      content: "0" counter(item) "/"; /* Отображает текущее значение счётчика */
+      font-size: 32px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    &__desc {
+      font-size: 24px;
+      line-height: normal;
+    }
+  }
+  &__note {
+    margin-top: 32px;
+    font-size: 20px;
+  }
+  &__svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    left: 50%;
+    z-index: -1;
+  }
+}
