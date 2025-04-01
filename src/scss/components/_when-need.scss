@@ -5,12 +5,14 @@
     gap: 40px;
   }
   &-item {
+    min-height: 14.75rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
     padding: 40px;
     box-sizing: border-box;
     border-radius: 40px;
     &__desc {
+      margin: 0;
       font-size: 32px;
       line-height: normal;
     }

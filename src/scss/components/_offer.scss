@@ -2,8 +2,8 @@
   position: relative;
   &__picture {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
+    transform: translateY(-48%);
     right: 0;
   }
   &__content {
