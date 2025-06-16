@@ -1,0 +1,29 @@
+@use "./mixins/disable-mob-hover" as *;
+.bid {
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    margin-top: 1rem;
+  }
+  &__image img {
+    margin-left: -15px;
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  &__link {
+    color: var(--black);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 0.3s;
+    @include hover() {
+      &:hover {
+        color: var(--green-medium);
+      }
+    }
+  }
+}

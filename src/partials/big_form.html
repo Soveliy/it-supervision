@@ -1,18 +1,91 @@
 <section class="section bid">
   <div class="container">
     <div class="section-head">
-      <h2 class="section-head__title">
-        Оставьте заявку
-      </h2>
+      <h2 class="section-head__title">Оставьте заявку</h2>
       <p class="section-head__desc">
         Частые вопросы о нашем контроле за подрядчиками
       </p>
     </div>
     <div class="bid__row">
-      
+      <div class="bid__left">
+        <div class="bid__image">
+          <picture>
+            <source srcset="img/form_bg.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              src="img/form_bg.png"
+              class="image"
+              width=""
+              height=""
+              alt=""
+            />
+          </picture>
+        </div>
+        <div class="bid__links">
+          <a class="bid__link" href="tel:+78005555335">+7 (800) 555-53-35</a>
+          <a class="bid__link" href="mailto:pochta@yandex.ru"
+            >pochta@yandex.ru</a
+          >
+        </div>
+      </div>
+      <form action="#" class="form">
+        <div class="form__wrap">
+          <div class="form__item">
+            <input
+              type="text"
+              name="name"
+              placeholder=" "
+              class="form__input"
+            />
+            <label class="form__input-placeholder" for=""
+              >Имя или компания</label
+            >
+          </div>
+          <div class="form__item">
+            <input
+              type="tel"
+              name="phone"
+              placeholder=" "
+              class="form__input"
+            />
+            <label class="form__input-placeholder" for="">Телефон</label>
+          </div>
+          <div class="form__item">
+            <input
+              type="email"
+              name="email"
+              placeholder=" "
+              class="form__input"
+            />
+            <label class="form__input-placeholder" for="">Почта</label>
+          </div>
+          <div class="form__item">
+            <input
+              type="text"
+              name="comment"
+              placeholder=" "
+              class="form__input"
+            />
+            <label class="form__input-placeholder" for=""
+              >Расскажите о проблеме</label
+            >
+          </div>
+          <label class="form__file form__file--big-margin">
+            <input type="file" />
+            <svg class="form__file-icon">
+              <use xlink:href="img/sprite.svg#file"></use>
+            </svg>
+            Прикрепить файл
+          </label>
+          <button class="form__button form__button--big-margin button">
+            Заказать звонок
+          </button>
+          <div class="form__policy">
+            Нажимая «Заказать звонок», вы соглашаетесь с политикой
+            конфиденциальности и обработки персональных данных
+          </div>
+        </div>
+      </form>
     </div>
-
-
-
   </div>
 </section>

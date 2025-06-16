@@ -10,3 +10,19 @@ var typed = new Typed(".hero__slide", {
   backDelay: 700,
   loop: true,
 });
+import { gsap } from "gsap";
+
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin.js";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+// ScrollSmoother requires ScrollTrigger
+import { ScrollSmoother } from "gsap/ScrollSmoother.js";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
+
+gsap.registerPlugin(
+  MorphSVGPlugin,
+  ScrollTrigger,
+  ScrollSmoother,
+  ScrollToPlugin
+);
+
+console.log(gsap);
