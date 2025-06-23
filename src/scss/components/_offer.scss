@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .offer {
   position: relative;
   &__picture {
@@ -15,13 +16,13 @@
   &__title {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 60px;
+    font-size: clamp(1.75rem, 1.1378rem + 2.6122vw, 3.75rem);
     line-height: 107%;
     margin: 0;
   }
   &__desc {
     margin: 0;
-    font-size: 36px;
+    font-size: clamp(1.125rem, 0.8571rem + 1.1429vw, 2rem);
     line-height: normal;
   }
 }

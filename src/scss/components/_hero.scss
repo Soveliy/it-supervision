@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .hero {
   &__content {
     position: relative;
@@ -12,17 +13,27 @@
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    justify-content: flex-end;
+    img {
+      @include for-desktop {
+        max-width: 65%;
+      }
+    }
   }
   &__title {
     margin: 0 0 27px 0;
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 8rem;
+
+    // font-size: 128px;
+
+    font-size: clamp(3rem, 1.4694rem + 6.5306vw, 8rem);
     line-height: 1;
   }
   &__desc {
     font-weight: 400;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 1.2704rem + 0.9796vw, 2.25rem);
   }
   &__slide-wrap {
     margin-top: 14px;
@@ -40,7 +51,7 @@
   }
   &__slide {
     font-weight: 500;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 1.2704rem + 0.9796vw, 2.25rem);
     color: var(--green-dark);
   }
   &__button {

@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .how-we-work {
   position: relative;
   &__grid {
@@ -11,21 +12,21 @@
     max-width: 503px;
     flex-shrink: 0;
     &:before {
-      counter-increment: item; /* Инкрементирует счётчик*/
-      content: "0" counter(item) "/"; /* Отображает текущее значение счётчика */
-      font-size: 32px;
+      counter-increment: item;
+      content: "0" counter(item) "/";
+      font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
       display: block;
       margin-bottom: 20px;
     }
 
     &__desc {
-      font-size: 24px;
+      font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
       line-height: normal;
     }
   }
   &__note {
     margin-top: 32px;
-    font-size: 20px;
+    font-size: clamp(0.75rem, 0.5969rem + 0.6531vw, 1.25rem);
     line-height: normal;
   }
   &__svg {

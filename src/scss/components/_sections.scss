@@ -1,10 +1,17 @@
+@use "./mixins/breakpoint" as *;
 .section {
   padding: 70px 0;
+  @include for-desktop {
+    padding: 60px 0;
+  }
   &--first {
     padding-top: 30px;
   }
   &--big-padding {
     padding: 110px 0;
+    @include for-desktop {
+      padding: 80px 0;
+    }
   }
   &-head {
     max-width: 1185px;
@@ -12,13 +19,13 @@
       margin: 0;
       font-family: var(--second-family);
       font-weight: 400;
-      font-size: 60px;
+      font-size: clamp(1.75rem, 1.1378rem + 2.6122vw, 3.75rem);
       line-height: 107%;
     }
     &__desc {
       margin: 32px 0 0 0;
       font-weight: 400;
-      font-size: 36px;
+      font-size: clamp(1.125rem, 0.7806rem + 1.4694vw, 2.25rem);
       line-height: normal;
     }
     &--lit-margin {
@@ -39,13 +46,14 @@
     &__title {
       margin-bottom: 24px;
       font-family: var(--third-family);
-      font-size: 44px;
+      font-size: clamp(1.75rem, 1.4439rem + 1.3061vw, 2.75rem);
+
       line-height: normal;
     }
     &__desc {
       max-width: 1140px;
       font-weight: 400;
-      font-size: 36px;
+      font-size: clamp(1.125rem, 0.7806rem + 1.4694vw, 2.25rem);
       line-height: normal;
       width: 100%;
       span {

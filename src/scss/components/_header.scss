@@ -1,10 +1,13 @@
-// ваш код
+@use "./mixins/breakpoint" as *;
 .header {
   position: fixed;
   top: 2.5rem;
   left: 0;
   width: 100%;
   z-index: 1000;
+  @include for-desktop {
+    top: 2rem;
+  }
 
   &__menu {
     padding: 22px 60px;
@@ -14,10 +17,16 @@
     margin: 0 auto;
     box-sizing: border-box;
     border-radius: 100px;
+    @include for-desktop {
+      padding: 16px 40px;
+    }
   }
   &__list {
     display: flex;
     gap: 40px;
+    @include for-desktop {
+      gap: 30px;
+    }
   }
   &__item {
     display: flex;
@@ -28,5 +37,8 @@
     font-weight: 400;
     font-size: 20px;
     color: var(--black);
+    @include for-desktop {
+      font-size: 18px;
+    }
   }
 }

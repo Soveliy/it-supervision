@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .when-need {
   &__grid {
     display: grid;
@@ -8,12 +9,12 @@
     min-height: 14.75rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
-    padding: 40px;
+    padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
     box-sizing: border-box;
-    border-radius: 40px;
+    border-radius: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
     &__desc {
       margin: 0;
-      font-size: 32px;
+      font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
       line-height: normal;
     }
   }

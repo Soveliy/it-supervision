@@ -1,3 +1,4 @@
+@use "./mixins/breakpoint" as *;
 .experts {
   &__wrap {
     position: relative;
@@ -20,12 +21,12 @@
   }
   &-item {
     &__title {
-      font-size: 32px;
+      font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
       line-height: normal;
-      margin-bottom: 20px;
+      margin-bottom: clamp(0.5rem, 0.2704rem + 0.9796vw, 1.25rem);
     }
     &__desc {
-      font-size: 24px;
+      font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
       line-height: normal;
     }
   }
