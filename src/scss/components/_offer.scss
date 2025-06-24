@@ -6,12 +6,17 @@
     top: 0;
     transform: translateY(-48%);
     right: 0;
+    @include mobile {
+      transform: none;
+      width: 8.125rem;
+      top: -0.625rem;
+    }
   }
   &__content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 2rem;
   }
   &__title {
     font-family: var(--second-family);
@@ -24,5 +29,10 @@
     margin: 0;
     font-size: clamp(1.125rem, 0.8571rem + 1.1429vw, 2rem);
     line-height: normal;
+  }
+  &__button {
+    @include mobile {
+      width: 100%;
+    }
   }
 }
