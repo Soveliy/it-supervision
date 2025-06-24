@@ -1,10 +1,21 @@
+@use "./mixins/breakpoint" as *;
 .problems {
+  &__wrap {
+    @include mobile {
+      border-radius: 20px;
+      background-color: var(--green-base);
+    }
+  }
   &-item {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: var(--white);
     border-radius: 60px;
     padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem)
       clamp(1.25rem, 0.102rem + 4.898vw, 5rem);
+    @include mobile {
+      border-radius: 20px;
+      background-color: var(--green-base);
+    }
     &__title {
       font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
       line-height: 1;
