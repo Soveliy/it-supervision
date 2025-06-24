@@ -4,7 +4,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: flex-start;
-    gap: 20px;
+    gap: 1.25rem;
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
   }
   &-item {
     position: relative;
@@ -17,11 +21,14 @@
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
       background: var(--green-base);
     }
+    @include mobile {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    }
     &__head {
-      padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem)
+      padding: clamp(1.25rem, 0.4847rem + 3.2653vw, 3.75rem)
         clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem)
-        clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem)
-        clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
+        clamp(1.25rem, 0.4847rem + 3.2653vw, 3.75rem)
+        clamp(1.25rem, 0.102rem + 4.898vw, 5rem);
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -41,7 +48,10 @@
       transition: 0.4s;
       font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
       line-height: normal;
-      padding: 0 80px;
+      padding: 0 clamp(1.25rem, 0.102rem + 4.898vw, 5rem);
+      @include mobile {
+        top: -10px;
+      }
       > *:first-child {
         margin-top: 0;
       }

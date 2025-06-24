@@ -221,6 +221,11 @@ a {
     padding: 80px 0;
   }
 }
+@media (max-width: 576px) {
+  .section--big-padding {
+    padding: 15px 0;
+  }
+}
 .section-head {
   max-width: 1185px;
 }
@@ -932,7 +937,14 @@ a {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 1.25rem;
+}
+@media (max-width: 576px) {
+  .faq__items {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
 }
 .faq-item {
   position: relative;
@@ -949,8 +961,14 @@ a {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
   background: var(--green-base);
 }
+@media (max-width: 576px) {
+  .faq-item {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  }
+}
 .faq-item__head {
-  padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem) clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem) clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem) clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
+  padding: clamp(1.25rem, 0.4847rem + 3.2653vw, 3.75rem) clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem) clamp(1.25rem, 0.4847rem + 3.2653vw, 3.75rem) clamp(1.25rem, 0.102rem + 4.898vw, 5rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -979,7 +997,12 @@ a {
   transition: 0.4s;
   font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
   line-height: normal;
-  padding: 0 80px;
+  padding: 0 clamp(1.25rem, 0.102rem + 4.898vw, 5rem);
+}
+@media (max-width: 576px) {
+  .faq-item__body {
+    top: -10px;
+  }
 }
 .faq-item__body > *:first-child {
   margin-top: 0;

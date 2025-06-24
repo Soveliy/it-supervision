@@ -18,6 +18,9 @@
     @include for-desktop {
       padding: 80px 0;
     }
+    @include mobile {
+      padding: 15px 0;
+    }
   }
   &-head {
     max-width: 1185px;
