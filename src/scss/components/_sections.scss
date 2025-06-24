@@ -46,7 +46,9 @@
     &--big-margin {
       margin-bottom: 60px;
       @include mobile {
-        margin-bottom: 34px;
+        &:not(.section-head--big-margin-mobile) {
+          margin-bottom: 34px;
+        }
       }
     }
   }
