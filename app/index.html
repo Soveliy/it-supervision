@@ -18,7 +18,7 @@
   <div class="site-container">
     <header class="header">
   <div class="container">
-    <nav class="header__menu">
+    <div class="header__menu">
       <ul class="header__list list-reset">
         <li class="header__item"><a href="#" class="header__link">Главная</a></li>
         <li class="header__item"><a href="#" class="header__link">О нас</a></li>
@@ -27,17 +27,36 @@
         <li class="header__item"><a href="#" class="header__link">Кейсы</a></li>
         <li class="header__item"><a href="#" class="header__link">Отзывы</a></li>
         <li class="header__item"><a href="#" class="header__link">Сколько стоит</a></li>
-        <li class="header__item"><a href="#" class="header__link">Оставить заякву</a></li>
+        <li class="header__item"><a href="#" class="header__link">Оставить заявку</a></li>
       </ul>
-    </nav>
+      <div class="header__bottom">
+        <div class="header__links">
+          <a href="tel:+78005555335" class="header__bottom-link">+7 (800-55) 5-53-35</a>
+          <a href="mailto:pochta@yandex.ru" class="header__bottom-link">pochta@yandex.ru</a>
+        </div>
+        <button class="header__bottom-button button">Оставить заявку</button>
+      </div>
+    </div>
+    <button class="header__burger burger btn-reset">
+      <svg class="burger__icon burger--rotate" viewBox="0 0 100 100" width="40">
+        <path class="burger__line burger__line--top"
+          d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
+        <path class="burger__line burger__line--middle" d="m 70,50 h -40" />
+        <path class="burger__line burger__line--bottom"
+          d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
+      </svg>
+    </button>
+
   </div>
 </header>
-
     <main class="main">
       <div class="hero">
 
   <div class="container">
     <picture class="hero__picture">
+
+      <source srcset="img/hero_mob.webp" type="image/webp" media="(max-width: 576px)">
+      <source srcset="img/hero_mob.png" media="(max-width: 576px)">
       <source srcset="img/hero_img.webp" type="image/webp">
       <img src="img/hero_img.png" class="image" width="" height="" alt="">
     </picture>
@@ -53,7 +72,6 @@
     </div>
   </div>
 </div>
-
       <section class="section section--first problems">
   <div class="container">
     <div class="section-head section-head--lit-margin">

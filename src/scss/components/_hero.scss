@@ -8,6 +8,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    @include mobile {
+      min-height: inherit;
+      padding-top: 21.1875rem;
+    }
   }
   &__picture {
     position: absolute;
@@ -15,14 +19,20 @@
     right: 0;
     display: flex;
     justify-content: flex-end;
+    // @include mobile {
+    //   position: static;
+    // }
     img {
-      @include for-desktop {
+      @include big-desktop {
         max-width: 65%;
+      }
+      @include mobile {
+        max-width: 100%;
       }
     }
   }
   &__title {
-    margin: 0 0 27px 0;
+    margin: 0 0 clamp(1.125rem, 0.9528rem + 0.7347vw, 1.6875rem) 0;
     font-family: var(--second-family);
     font-weight: 400;
 
@@ -40,21 +50,39 @@
     display: flex;
     align-items: center;
     min-height: 56px;
+    @include mobile {
+      display: block;
+    }
     .typed-cursor {
       border-radius: 0.875rem;
       width: 0.25rem;
-      height: 3.375rem;
+      height: clamp(1.375rem, 0.7628rem + 2.6122vw, 3.375rem);
       background: var(--green-dark);
       font-size: 0;
       margin-left: 0.5rem;
+      @include tablet {
+        width: 0.125rem;
+      }
+      @include mobile {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 0.25rem;
+      }
     }
   }
   &__slide {
     font-weight: 500;
     font-size: clamp(1.5rem, 1.2704rem + 0.9796vw, 2.25rem);
     color: var(--green-dark);
+    @include mobile {
+      font-weight: 400;
+      display: inline;
+    }
   }
   &__button {
-    margin-top: 65px;
+    margin-top: clamp(2.6rem, 2.0217rem + 2.0408vw, 4.0625rem);
+    @include mobile {
+      width: 100%;
+    }
   }
 }

@@ -18,6 +18,9 @@
   &:active {
     background-color: var(--green-dark);
   }
+  @include small-tablet {
+    padding: 15px 32px 13px;
+  }
   @include hover {
     &:hover {
       background-color: var(--green-medium);

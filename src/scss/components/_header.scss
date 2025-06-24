@@ -1,3 +1,4 @@
+@use "./mixins/disable-mob-hover" as *;
 @use "./mixins/breakpoint" as *;
 .header {
   position: fixed;
@@ -5,10 +6,25 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  @include for-desktop {
-    top: 2rem;
+  @include tablet {
+    top: 0;
+    padding-top: 0.5rem;
   }
-
+  &__bottom {
+    display: none;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+  &__burger {
+    display: none;
+    @include tablet {
+      display: block;
+      margin-left: auto;
+    }
+  }
   &__menu {
     padding: 22px 60px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -17,15 +33,41 @@
     margin: 0 auto;
     box-sizing: border-box;
     border-radius: 100px;
-    @include for-desktop {
-      padding: 16px 40px;
+    @include big-desktop {
+      padding: 16px 30px;
+    }
+    @include tablet {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+      box-sizing: border-box;
+      padding: 56px 20px 22px;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: 0.3s;
+      background-color: var(--white);
+      border-radius: 0;
+      &.header__menu--active {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
   }
   &__list {
     display: flex;
     gap: 40px;
-    @include for-desktop {
-      gap: 30px;
+    @include big-desktop {
+      gap: 24px;
+    }
+    @include tablet {
+      flex-direction: column;
+      gap: 0;
     }
   }
   &__item {
@@ -35,10 +77,26 @@
   }
   &__link {
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(1.125rem, 1.0867rem + 0.1633vw, 1.25rem);
     color: var(--black);
-    @include for-desktop {
-      font-size: 18px;
+    transition: 0.3s;
+    @include hover {
+      &:hover {
+        color: var(--green-dark);
+      }
     }
+    @include tablet {
+      padding: 14px 0;
+    }
+  }
+  &__bottom-link {
+    font-size: clamp(1.125rem, 1.0867rem + 0.1633vw, 1.25rem);
+    color: var(--black);
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 }
