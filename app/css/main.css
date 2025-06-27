@@ -1152,14 +1152,23 @@ a {
   overflow: visible;
 }
 .slider-default__slide {
-  padding: 40px;
-  border-radius: 40px;
+  height: auto;
+  padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
+  border-radius: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
   background: var(--white);
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (max-width: 576px) {
+  .slider-default__slide {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+  }
 }
 .slider-default__name {
-  font-size: 2rem;
+  font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
   font-weight: 400;
   line-height: normal;
   margin-bottom: 4px;
@@ -1167,8 +1176,13 @@ a {
 .slider-default__name--margin {
   margin-bottom: 20px;
 }
+@media (max-width: 576px) {
+  .slider-default__name--margin {
+    margin-bottom: 12px;
+  }
+}
 .slider-default__desc {
-  font-size: 1.5rem;
+  font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -1181,7 +1195,7 @@ a {
   padding: 0;
   color: var(--gray-dark);
   /* Desktop/Body/S */
-  font-size: 1.5rem;
+  font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -1196,11 +1210,16 @@ a {
   gap: 2.5rem;
   margin-top: 32px;
 }
+@media (max-width: 576px) {
+  .slider-default__arrows {
+    display: none;
+  }
+}
 .slider-default__footer {
   margin-top: 27px;
 }
 .slider-default__pos {
-  font-size: 1.5rem;
+  font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
   line-height: normal;
   color: var(--gray-dark);
 }

@@ -25035,11 +25035,21 @@ __webpack_require__.r(__webpack_exports__);
 
 swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use(swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation);
 var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".slider-default", {
-  slidesPerView: 2.05,
-  spaceBetween: 20,
+  slidesPerView: 1.1,
+  spaceBetween: 12,
   navigation: {
     nextEl: ".slider-default__arrow--next",
     prevEl: ".slider-default__arrow--prev"
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    768: {
+      slidesPerView: 2.05,
+      spaceBetween: 20
+    }
   }
 });
 

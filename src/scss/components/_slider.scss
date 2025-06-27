@@ -1,23 +1,32 @@
 @use "mixins" as mixins;
+@use "./mixins/breakpoint" as *;
 .slider-default {
   overflow: visible;
   &__slide {
-    padding: 40px;
-    border-radius: 40px;
+    height: auto;
+    padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
+    border-radius: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
     background: var(--white);
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    @include mobile {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    }
   }
   &__name {
-    font-size: 2rem;
+    font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
     font-weight: 400;
     line-height: normal;
     margin-bottom: 4px;
     &--margin {
       margin-bottom: 20px;
+      @include mobile {
+        margin-bottom: 12px;
+      }
     }
   }
   &__desc {
-    font-size: 1.5rem;
+    font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -31,7 +40,7 @@
 
     color: var(--gray-dark);
     /* Desktop/Body/S */
-    font-size: 1.5rem;
+    font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -41,12 +50,15 @@
     align-items: center;
     gap: 2.5rem;
     margin-top: 32px;
+    @include mobile {
+      display: none;
+    }
   }
   &__footer {
     margin-top: 27px;
   }
   &__pos {
-    font-size: 1.5rem;
+    font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
     line-height: normal;
     color: var(--gray-dark);
   }
