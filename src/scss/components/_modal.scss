@@ -1,0 +1,37 @@
+.modal {
+  &__container {
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    width: 96%;
+    box-sizing: border-box;
+    &--lit {
+      max-width: 918px;
+    }
+    &--big {
+      max-width: 1200px;
+    }
+  }
+  &__close {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  &__close-icon {
+    height: 100%;
+    width: 100%;
+    stroke: var(--black);
+  }
+  &__title {
+    font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
+    font-weight: 400;
+    color: var(--black);
+  }
+  &__header {
+    margin-bottom: 2.5rem;
+  }
+}

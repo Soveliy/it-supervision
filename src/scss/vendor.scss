@@ -11,5 +11,10 @@
 // стили для свайпера
 @use "../../node_modules/swiper/swiper-bundle.min" as *;
 
+// Fancybox
+// @use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" as *;
+
 // стили для скролла simplebar
 // @import "../../node_modules/simplebar/dist/simplebar.min";
+
+@use "./vendor/modal" as *;
