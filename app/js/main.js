@@ -30376,6 +30376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_slider_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/slider.js */ "./src/js/components/slider.js");
 /* harmony import */ var _components_burger_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/burger.js */ "./src/js/components/burger.js");
 /* harmony import */ var _components_validation_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/validation.js */ "./src/js/components/validation.js");
+/* harmony import */ var _components_animation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/animation.js */ "./src/js/components/animation.js");
+
 
 
 
@@ -30412,6 +30414,62 @@ if (accordeonItems.length > 0) {
 
 /***/ }),
 
+/***/ "./src/js/components/animation.js":
+/*!****************************************!*\
+  !*** ./src/js/components/animation.js ***!
+  \****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/MorphSVGPlugin.js */ "./node_modules/gsap/MorphSVGPlugin.js");
+/* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollSmoother.js */ "./node_modules/gsap/ScrollSmoother.js");
+/* harmony import */ var gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollToPlugin.js */ "./node_modules/gsap/ScrollToPlugin.js");
+
+
+
+// ScrollSmoother requires ScrollTrigger
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_1__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_3__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_4__.ScrollToPlugin);
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
+  opacity: 0,
+  y: 60,
+  filter: "blur(10px)"
+});
+const headerTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+setTimeout(() => {
+  headerTl.to(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    duration: 0.6,
+    ease: "expo.out",
+    stagger: 0.12
+  }, "-=0.5").to(".hero__button", {
+    scale: 1.05,
+    boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+    duration: 0.15,
+    yoyo: true,
+    repeat: 1,
+    ease: "power1.inOut"
+  }, "-=0.4").to(".header", {
+    y: 0,
+    opacity: 1,
+    duration: 0.7,
+    ease: "expo.out"
+  }).to(".hero__picture", {
+    opacity: 1,
+    duration: 0.7,
+    ease: "back.out(1.7)"
+  }, "-=0.3");
+}, 100);
+
+/***/ }),
+
 /***/ "./src/js/components/burger.js":
 /*!*************************************!*\
   !*** ./src/js/components/burger.js ***!
@@ -30441,11 +30499,6 @@ if (burger && menu) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var typed_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! typed.js */ "./node_modules/typed.js/dist/typed.module.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/MorphSVGPlugin.js */ "./node_modules/gsap/MorphSVGPlugin.js");
-/* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
-/* harmony import */ var gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap/ScrollSmoother.js */ "./node_modules/gsap/ScrollSmoother.js");
-/* harmony import */ var gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/ScrollToPlugin.js */ "./node_modules/gsap/ScrollToPlugin.js");
 
 var typed = new typed_js__WEBPACK_IMPORTED_MODULE_0__["default"](".hero__slide", {
   strings: ["Отслеживаем каждый шаг проекта", "Оцениваем эффективность подрядчиков", "Проводим тотальные аудиты", "Ликвидируем риски"],
@@ -30453,14 +30506,6 @@ var typed = new typed_js__WEBPACK_IMPORTED_MODULE_0__["default"](".hero__slide",
   backDelay: 700,
   loop: true
 });
-
-
-
-// ScrollSmoother requires ScrollTrigger
-
-
-gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_2__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_3__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_4__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_5__.ScrollToPlugin);
-console.log(gsap__WEBPACK_IMPORTED_MODULE_1__.gsap);
 
 /***/ }),
 

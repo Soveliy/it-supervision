@@ -6,6 +6,8 @@
   left: 0;
   width: 100%;
   z-index: 1000;
+  transform: translateY(-150%);
+  opacity: 0;
   @include tablet {
     top: 0;
     padding-top: 0.5rem;

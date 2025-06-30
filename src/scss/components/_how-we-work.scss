@@ -1,6 +1,7 @@
 @use "./mixins/breakpoint" as *;
 .how-we-work {
   position: relative;
+  overflow: hidden;
   &__grid {
     display: flex;
     overflow: auto;

@@ -24,3 +24,8 @@
 @use "./components/bid" as *;
 @use "./components/footer" as *;
 @use "./components/modal" as *;
+
+.fadeDown {
+  transform: translateY(50px);
+  opacity: 0;
+}

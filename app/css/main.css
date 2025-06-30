@@ -90,6 +90,10 @@
   min-width: 360px;
   min-height: 100%;
   font-size: 16px;
+  overflow-x: hidden;
+}
+.page__body.lock-scroll {
+  overflow: hidden;
 }
 
 img {
@@ -340,6 +344,10 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
+  -webkit-transform: translateY(-150%);
+  -ms-transform: translateY(-150%);
+  transform: translateY(-150%);
+  opacity: 0;
 }
 @media (max-width: 1024px) {
   .header {
@@ -580,6 +588,7 @@ a {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  opacity: 0;
 }
 @media (max-width: 1400px) {
   .hero__picture img {
@@ -888,6 +897,7 @@ a {
 
 .how-we-work {
   position: relative;
+  overflow: hidden;
 }
 .how-we-work__grid {
   display: -webkit-box;
@@ -1626,4 +1636,11 @@ a {
 }
 .modal__header {
   margin-bottom: 2.5rem;
+}
+
+.fadeDown {
+  -webkit-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  transform: translateY(50px);
+  opacity: 0;
 }/*# sourceMappingURL=main.css.map */

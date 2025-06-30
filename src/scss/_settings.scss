@@ -18,6 +18,10 @@
   min-width: 360px;
   min-height: 100%;
   font-size: 16px;
+  overflow-x: hidden;
+  &.lock-scroll {
+    overflow: hidden;
+  }
 }
 
 img {
