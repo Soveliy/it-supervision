@@ -721,6 +721,9 @@ a {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.problems-item__title:not(.problems-item__title--invisible) {
+  position: absolute;
+}
 .problems-item__desc {
   margin-top: 7px;
   font-family: var(--font-family);
