@@ -2,7 +2,8 @@ import { gsap } from "gsap";
 
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin.js";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-// ScrollSmoother requires ScrollTrigger
+import DrawSVGPlugin from "gsap/DrawSVGPlugin.js";
+
 import { ScrollSmoother } from "gsap/ScrollSmoother.js";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
 
@@ -10,7 +11,8 @@ gsap.registerPlugin(
   MorphSVGPlugin,
   ScrollTrigger,
   ScrollSmoother,
-  ScrollToPlugin
+  ScrollToPlugin,
+  DrawSVGPlugin
 );
 
 gsap.registerPlugin(ScrollTrigger);
@@ -51,41 +53,28 @@ headerTl
 
 gsap.registerPlugin(ScrollTrigger);
 
-// gsap.to(".problems .fadeDown", {
-//   scrollTrigger: {
-//     trigger: ".problems",
-//     start: "top 50%", // когда верх блока на 80% от верха окна
-//     toggleActions: "play none none none",
-//   },
-//   opacity: 1,
-//   y: 0,
-//   filter: "blur(0px)",
-//   duration: 0.6,
-//   ease: "expo.out",
-//   stagger: 0.12,
-// });
-
-gsap.utils
-  .toArray(
-    ".fadeDown:not(.hero__title):not(.hero__desc):not(.hero__slide-wrap):not(.hero__button)"
-  )
-  .forEach((el, i) => {
-    gsap.to(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 80%", // когда верх элемента дойдет до 80% от окна
-        toggleActions: "play none none none",
-      },
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: 1.2,
-      ease: "expo.inOut",
-      // delay: i * 0.12,
+const sections = gsap.utils.toArray(".section");
+sections.forEach((section) => {
+  const defaultAnimElems = section.querySelectorAll(".fadeDown");
+  if (defaultAnimElems.length > 0) {
+    defaultAnimElems.forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%", // когда верх элемента дойдет до 80% от окна
+          toggleActions: "play none none none",
+        },
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 1.2,
+        ease: "expo.inOut",
+        delay: i * 0.1,
+      });
     });
-  });
+  }
+});
 
-// Перебираем все .highlighted-text элементы
 document.querySelectorAll(".highlighted-text").forEach((highlight) => {
   const path = highlight.querySelector(".highlight-svg path");
   if (!path) return; // если внутри нет path — пропускаем
@@ -105,4 +94,56 @@ document.querySelectorAll(".highlighted-text").forEach((highlight) => {
       toggleActions: "play none none none",
     },
   });
+});
+
+const howDist = document.querySelector(".how-we-work__grid");
+let howDistWidth = howDist.offsetWidth;
+let amountToScroll = howDistWidth - window.innerWidth;
+function getScrollAmount() {
+  let howDistWidth = howDist.scrollWidth;
+  return -(howDistWidth - window.innerWidth);
+}
+const tween = gsap.to(howDist, {
+  x: getScrollAmount,
+  duration: 3,
+  ease: "none",
+});
+
+ScrollTrigger.create({
+  trigger: ".how-we-work",
+  start: "top 20%",
+  end: () => `+=${getScrollAmount() * -1}`,
+  pin: true,
+  animation: tween,
+  scrub: true,
+  markers: true,
+});
+
+const path1 = document.querySelector(".how-we-work__path-1");
+const path2 = document.querySelector(".how-we-work__path-2");
+const path3 = document.querySelector(".how-we-work__path-3");
+const path4 = document.querySelector(".how-we-work__path-4");
+
+gsap.to(path1, {
+  scrollTrigger: {
+    trigger: ".how-we-work",
+    start: "top 20%",
+    end: "+=" + amountToScroll,
+    scrub: true,
+  },
+  morphSVG: path3,
+  strokeWidth: 10,
+  ease: "none",
+});
+
+gsap.to(path2, {
+  scrollTrigger: {
+    trigger: ".how-we-work",
+    start: "top 20%",
+    end: "+=" + amountToScroll,
+    scrub: true,
+  },
+  morphSVG: path4,
+  strokeWidth: 20,
+  ease: "none",
 });

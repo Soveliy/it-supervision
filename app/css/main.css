@@ -947,7 +947,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   gap: 40px;
   counter-reset: item;
 }

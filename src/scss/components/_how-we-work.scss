@@ -4,7 +4,8 @@
   overflow: hidden;
   &__grid {
     display: flex;
-    overflow: auto;
+    // overflow: auto;
+    width: fit-content;
     gap: 40px;
     counter-reset: item;
   }
