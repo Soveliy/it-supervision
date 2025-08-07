@@ -30848,8 +30848,8 @@ gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
   end: () => `+=${getScrollAmount() * -1}`,
   pin: true,
   animation: tween,
-  scrub: true,
-  markers: true
+  scrub: true
+  // markers: true,
 });
 const path1 = document.querySelector(".how-we-work__path-1");
 const path2 = document.querySelector(".how-we-work__path-2");

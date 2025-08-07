@@ -116,7 +116,7 @@ ScrollTrigger.create({
   pin: true,
   animation: tween,
   scrub: true,
-  markers: true,
+  // markers: true,
 });
 
 const path1 = document.querySelector(".how-we-work__path-1");
