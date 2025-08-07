@@ -30766,9 +30766,9 @@ __webpack_require__.r(__webpack_exports__);
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WEBPACK_IMPORTED_MODULE_1__.MorphSVGPlugin, gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger, gsap_ScrollSmoother_js__WEBPACK_IMPORTED_MODULE_3__.ScrollSmoother, gsap_ScrollToPlugin_js__WEBPACK_IMPORTED_MODULE_4__.ScrollToPlugin, gsap_DrawSVGPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
-  opacity: 0,
+  opacity: 0
   // y: 60,
-  filter: "blur(10px)"
+  // filter: "blur(10px)",
 });
 const headerTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
 headerTl.to(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
@@ -30776,8 +30776,8 @@ headerTl.to(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
   y: 0,
   filter: "blur(0px)",
   duration: 1.2,
-  ease: "expo.inOut",
-  stagger: 0.12
+  ease: "ease",
+  stagger: 0.2
 }).to(".hero__picture", {
   opacity: 1,
   duration: 1,

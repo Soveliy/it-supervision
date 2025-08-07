@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.set(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
   opacity: 0,
   // y: 60,
-  filter: "blur(10px)",
+  // filter: "blur(10px)",
 });
 
 const headerTl = gsap.timeline();
@@ -31,8 +31,8 @@ headerTl
     y: 0,
     filter: "blur(0px)",
     duration: 1.2,
-    ease: "expo.inOut",
-    stagger: 0.12,
+    ease: "ease",
+    stagger: 0.2,
   })
 
   .to(

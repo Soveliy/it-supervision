@@ -1685,8 +1685,8 @@ a {
 }
 
 .fadeDown {
-  -webkit-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(100px);
+  -ms-transform: translateY(100px);
+  transform: translateY(100px);
   opacity: 0;
 }/*# sourceMappingURL=main.css.map */
