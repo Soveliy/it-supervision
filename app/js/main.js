@@ -30767,47 +30767,83 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin_js__WE
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.set(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
   opacity: 0
-  // y: 60,
-  // filter: "blur(10px)",
 });
 const headerTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
-headerTl.to(".hero__title, .hero__desc, .hero__slide-wrap, .hero__button", {
+headerTl.fromTo(".header", {
+  y: -60,
+  opacity: 0,
+  filter: "blur(12px)"
+}, {
+  y: 0,
+  opacity: 1,
+  filter: "blur(0px)",
+  duration: 1.2,
+  ease: "expo.out"
+}).fromTo(".hero__picture", {
+  opacity: 0,
+  scale: 1.1,
+  x: 40,
+  filter: "blur(18px)"
+}, {
+  opacity: 1,
+  scale: 1,
+  x: 0,
+  filter: "blur(0px)",
+  duration: 1.6,
+  ease: "expo.out"
+}, "-=0.9").fromTo(".hero__title", {
+  opacity: 0,
+  y: 40,
+  filter: "blur(12px)"
+}, {
+  opacity: 1,
+  y: 0,
+  filter: "blur(0px)",
+  duration: 1.3,
+  ease: "power4.out"
+}, "-=1.1").fromTo(".hero__desc", {
+  opacity: 0,
+  y: 40,
+  filter: "blur(12px)"
+}, {
   opacity: 1,
   y: 0,
   filter: "blur(0px)",
   duration: 1.2,
-  ease: "ease",
-  stagger: 0.2
-}).to(".hero__picture", {
+  ease: "power4.out"
+}, "-=1.0").fromTo(".hero__slide-wrap, .hero__button", {
+  opacity: 0,
+  y: 40,
+  filter: "blur(12px)"
+}, {
   opacity: 1,
-  duration: 1,
-  x: 0,
-  ease: "expo.inOut"
-}, "-=0.8").to(".header", {
   y: 0,
-  opacity: 1,
-  duration: 1,
-  ease: "expo.inOut"
-}, "-=0.9");
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+  filter: "blur(0px)",
+  duration: 1.2,
+  ease: "power4.out",
+  stagger: 0.18
+}, "-=0.8");
 const sections = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".section");
 sections.forEach(section => {
   const defaultAnimElems = section.querySelectorAll(".fadeDown");
   if (defaultAnimElems.length > 0) {
     defaultAnimElems.forEach((el, i) => {
-      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(el, {
+      gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(el, {
+        opacity: 0,
+        y: 40,
+        filter: "blur(8px)"
+      }, {
         scrollTrigger: {
           trigger: el,
           start: "top 80%",
-          // когда верх элемента дойдет до 80% от окна
           toggleActions: "play none none none"
         },
         opacity: 1,
         y: 0,
         filter: "blur(0px)",
-        duration: 1.2,
-        ease: "expo.inOut",
-        delay: i * 0.1
+        duration: 1.1,
+        ease: "expo.out",
+        delay: i * 0.08
       });
     });
   }
@@ -30876,6 +30912,57 @@ gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(path2, {
   morphSVG: path4,
   strokeWidth: 20,
   ease: "none"
+});
+
+// Функция анимации числа
+function animateNumber(el, to) {
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(el, {
+    innerText: 0
+  }, {
+    innerText: to,
+    duration: 1.6,
+    ease: "power4.out",
+    snap: {
+      innerText: 1
+    },
+    onUpdate: function () {
+      el.innerText = Math.floor(el.innerText);
+    },
+    onComplete: function () {
+      el.innerText = to;
+    }
+  });
+}
+document.querySelectorAll("[data-number-animate]").forEach(el => {
+  const value = parseInt(el.textContent.replace(/\D/g, ""), 10);
+  el.innerText = 0;
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(el, {
+    scrollTrigger: {
+      trigger: el,
+      start: "top 80%",
+      once: true,
+      onEnter: () => animateNumber(el, value)
+    }
+  });
+});
+document.querySelectorAll(".experts-item__title").forEach(el => {
+  // Сохраняем оригинальный HTML
+  const nodes = Array.from(el.childNodes);
+  el.innerHTML = "";
+  nodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      Array.from(node.textContent).forEach((char, i) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.style.transitionDelay = i * 10 + "ms";
+        el.appendChild(span);
+      });
+    } else {
+      el.appendChild(node);
+    }
+  });
+  el.addEventListener("mouseenter", () => el.classList.add("active"));
+  el.addEventListener("mouseleave", () => el.classList.remove("active"));
 });
 
 /***/ }),

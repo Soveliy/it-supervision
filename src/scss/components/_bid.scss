@@ -18,7 +18,10 @@
   }
   &__image {
     img {
-      margin-left: -15px;
+      margin-left: -100px;
+      @include big-desktop {
+        margin-left: -15px;
+      }
     }
   }
   &__links {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* stylelint-disable */
 :root {
   --font-family: "LT Superior", sans-serif;
@@ -1013,6 +1014,11 @@ a {
   -webkit-transition: background 0.3s 0.2s;
   transition: background 0.3s 0.2s;
 }
+@media (any-hover: hover) {
+  .faq-item:hover:hover {
+    background-color: var(--green-base);
+  }
+}
 .faq-item.js-active {
   -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -1041,6 +1047,8 @@ a {
   color: var(--black);
   line-height: normal;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 .faq-item__body {
   position: relative;
@@ -1556,7 +1564,12 @@ a {
   }
 }
 .bid__image img {
-  margin-left: -15px;
+  margin-left: -100px;
+}
+@media (max-width: 1400px) {
+  .bid__image img {
+    margin-left: -15px;
+  }
 }
 .bid__links {
   display: -webkit-box;
@@ -1689,4 +1702,23 @@ a {
   -ms-transform: translateY(100px);
   transform: translateY(100px);
   opacity: 0;
+}
+
+.experts-item__title span {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.experts-item__title.active span {
+  color: var(--green-base); /* акцентный цвет при ховере */
+}
+
+.experts-item__title span {
+  /* Для эффекта волны */
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.experts-item__title span {
+  /* Каждая буква — отдельный delay через JS */
 }/*# sourceMappingURL=main.css.map */

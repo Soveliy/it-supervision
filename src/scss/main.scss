@@ -29,3 +29,20 @@
   transform: translateY(100px);
   opacity: 0;
 }
+
+.experts-item__title span {
+  transition: color 0.3s;
+}
+
+.experts-item__title.active span {
+  color: var(--green-base); /* акцентный цвет при ховере */
+}
+
+.experts-item__title span {
+  /* Для эффекта волны */
+  transition-property: color;
+}
+
+.experts-item__title span {
+  /* Каждая буква — отдельный delay через JS */
+}
