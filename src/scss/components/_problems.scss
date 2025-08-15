@@ -17,8 +17,15 @@
     min-height: 280px;
     transition: 0.3s;
     &:last-child {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
       padding: 70px 80px;
-      min-height: 200px;
+      min-height: 150px;
+      .problems-item__content {
+        max-height: 32px;
+      }
     }
     &:hover {
       // transform: translateY(-50px);
@@ -39,6 +46,17 @@
       //   max-height: 500px;
       //   opacity: 1;
       // }
+    }
+    &:last-child {
+      &:hover {
+        // todo anim
+        transform: none;
+        // min-height: 240px;
+        // transform: translateY(-40px);
+        .problems-item__content {
+          max-height: 500px;
+        }
+      }
     }
     @include mobile {
       border-radius: 20px;

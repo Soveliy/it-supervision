@@ -34,9 +34,11 @@
   &__svg {
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-29%);
+    // transform: translate(-50%, -50%);
     overflow: hidden;
-    left: 50%;
+    left: 0;
     z-index: -1;
+    width: 100%;
   }
 }

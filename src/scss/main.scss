@@ -26,8 +26,9 @@
 @use "./components/modal" as *;
 
 .fadeDown {
-  transform: translateY(100px);
+  transform: translateY(70px);
   opacity: 0;
+  will-change: transform;
 }
 
 .experts-item__title span {

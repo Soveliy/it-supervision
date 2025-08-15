@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin.js";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import CustomEase from "gsap/CustomEase.js";
 import DrawSVGPlugin from "gsap/DrawSVGPlugin.js";
 
 import { ScrollSmoother } from "gsap/ScrollSmoother.js";
@@ -12,7 +13,8 @@ gsap.registerPlugin(
   ScrollTrigger,
   ScrollSmoother,
   ScrollToPlugin,
-  DrawSVGPlugin
+  DrawSVGPlugin,
+  CustomEase
 );
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,12 +39,11 @@ headerTl
   )
   .fromTo(
     ".hero__picture",
-    { opacity: 0, scale: 1.1, x: 40, filter: "blur(18px)" },
+    { opacity: 0, scale: 1.1, x: 40, filter: "blur(0)" },
     {
       opacity: 1,
       scale: 1,
       x: 0,
-      filter: "blur(0px)",
       duration: 1.6,
       ease: "expo.out",
     },
@@ -50,94 +51,61 @@ headerTl
   )
   .fromTo(
     ".hero__title",
-    { opacity: 0, y: 40, filter: "blur(12px)" },
+    { opacity: 0, y: 40 },
     {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       duration: 1.3,
-      ease: "power4.out",
+      ease: "power2.out",
     },
     "-=1.1"
   )
   .fromTo(
     ".hero__desc",
-    { opacity: 0, y: 40, filter: "blur(12px)" },
+    {
+      opacity: 0,
+      y: 40,
+
+      // filter: "blur(12px)"
+    },
     {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       duration: 1.2,
-      ease: "power4.out",
+      ease: "power2.out",
     },
     "-=1.0"
   )
   .fromTo(
     ".hero__slide-wrap, .hero__button",
-    { opacity: 0, y: 40, filter: "blur(12px)" },
+    {
+      opacity: 0,
+      y: 40,
+    },
     {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       duration: 1.2,
-      ease: "power4.out",
+      ease: "power2.out",
       stagger: 0.18,
     },
     "-=0.8"
   );
-const sections = gsap.utils.toArray(".section");
-sections.forEach((section) => {
-  const defaultAnimElems = section.querySelectorAll(".fadeDown");
-  if (defaultAnimElems.length > 0) {
-    defaultAnimElems.forEach((el, i) => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 40, filter: "blur(8px)" },
-        {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 1.1,
-          ease: "expo.out",
-          delay: i * 0.08,
-        }
-      );
-    });
-  }
-});
-
-document.querySelectorAll(".highlighted-text").forEach((highlight) => {
-  const path = highlight.querySelector(".highlight-svg path");
-  if (!path) return; // если внутри нет path — пропускаем
-
-  const length = path.getTotalLength();
-
-  path.style.strokeDasharray = length;
-  path.style.strokeDashoffset = length;
-
-  gsap.to(path, {
-    strokeDashoffset: 0,
-    duration: 2.5,
-    ease: "expo.inOut",
-    scrollTrigger: {
-      trigger: highlight,
-      start: "top 90%",
-      toggleActions: "play none none none",
-    },
-  });
-});
 
 const howDist = document.querySelector(".how-we-work__grid");
 let howDistWidth = howDist.offsetWidth;
 let amountToScroll = howDistWidth - window.innerWidth;
+console.log(amountToScroll);
 function getScrollAmount() {
   let howDistWidth = howDist.scrollWidth;
-  return -(howDistWidth - window.innerWidth);
+  console.log(howDistWidth);
+  console.log(window.innerWidth);
+  let containerOffset = 0;
+  if (window.innerWidth > 1720) {
+    containerOffset = window.innerWidth - 1720;
+  }
+  console.log(containerOffset);
+  return -(howDistWidth - window.innerWidth + containerOffset);
 }
 const tween = gsap.to(howDist, {
   x: getScrollAmount,
@@ -183,6 +151,58 @@ gsap.to(path2, {
   strokeWidth: 20,
   ease: "none",
 });
+const sections = gsap.utils.toArray(".section");
+sections.forEach((section) => {
+  const defaultAnimElems = section.querySelectorAll(".fadeDown");
+  if (defaultAnimElems.length > 0) {
+    defaultAnimElems.forEach((el, i) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 40, filter: "blur(8px)" },
+        {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.1,
+          ease: "expo.out",
+          delay: i * 0.08,
+        }
+      );
+    });
+  }
+});
+
+document.querySelectorAll(".highlight-svg").forEach((svg) => {
+  const paths = svg.querySelectorAll(
+    "path, line, polyline, polygon, circle, ellipse"
+  );
+
+  gsap.set(paths, { drawSVG: "0%" });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: svg,
+      start: "top 70%",
+      end: "bottom 20%",
+    },
+  });
+
+  paths.forEach((p) => {
+    tl.to(p, { drawSVG: "100%", duration: 3, ease: "none" });
+  });
+});
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document
+    .querySelectorAll(".highlight-svg path")
+    .forEach((p) => gsap.set(p, { drawSVG: "100%" }));
+  ScrollTrigger.kill();
+}
 
 // Функция анимации числа
 function animateNumber(el, to) {
@@ -192,7 +212,7 @@ function animateNumber(el, to) {
     {
       innerText: to,
       duration: 1.6,
-      ease: "power4.out",
+      ease: "power2.out",
       snap: { innerText: 1 },
       onUpdate: function () {
         el.innerText = Math.floor(el.innerText);
@@ -220,6 +240,8 @@ document.querySelectorAll("[data-number-animate]").forEach((el) => {
 
 document.querySelectorAll(".experts-item__title").forEach((el) => {
   // Сохраняем оригинальный HTML
+
+  // todo remove green light on mouse leave
   const nodes = Array.from(el.childNodes);
   el.innerHTML = "";
   nodes.forEach((node) => {
@@ -237,4 +259,18 @@ document.querySelectorAll(".experts-item__title").forEach((el) => {
 
   el.addEventListener("mouseenter", () => el.classList.add("active"));
   el.addEventListener("mouseleave", () => el.classList.remove("active"));
+});
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.batch(".when-need-item__text-highlight", {
+  start: "top 85%",
+  onEnter: (batch) => {
+    gsap.to(batch, {
+      backgroundSize: "100% 0.28em",
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.1,
+    });
+  },
+  once: true,
 });

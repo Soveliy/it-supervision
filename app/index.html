@@ -21,13 +21,13 @@
     <div class="header__menu">
       <ul class="header__list list-reset">
         <li class="header__item"><a href="#" class="header__link">Главная</a></li>
-        <li class="header__item"><a href="#" class="header__link">О нас</a></li>
-        <li class="header__item"><a href="#" class="header__link">Этапы работ</a></li>
-        <li class="header__item"><a href="#" class="header__link">Преимущества</a></li>
-        <li class="header__item"><a href="#" class="header__link">Кейсы</a></li>
-        <li class="header__item"><a href="#" class="header__link">Отзывы</a></li>
-        <li class="header__item"><a href="#" class="header__link">Сколько стоит</a></li>
-        <li class="header__item"><a href="#" class="header__link">Оставить заявку</a></li>
+        <li class="header__item"><a href="#problems" class="header__link">О нас</a></li>
+        <li class="header__item"><a href="#how-we-work" class="header__link">Этапы работ</a></li>
+        <li class="header__item"><a href="#what-you-do" class="header__link">Преимущества</a></li>
+        <li class="header__item"><a href="#cases" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="#reviews" class="header__link">Отзывы</a></li>
+        <li class="header__item"><a href="#price" class="header__link">Сколько стоит</a></li>
+        <li class="header__item"><a href="#bid" class="header__link">Оставить заявку</a></li>
       </ul>
       <div class="header__bottom">
         <div class="header__links">
@@ -72,7 +72,7 @@
     </div>
   </div>
 </div>
-      <section class="section section--first problems">
+      <section class="section section--first problems" id="problems">
   <div class="container">
     <div class="section-head section-head--big-margin">
       <h2 class="section-head__title fadeDown">
@@ -166,6 +166,7 @@
     </div>
   </div>
 </section>
+
       <section class="section experts">
   <div class="container">
     <div class="section-head section-head--big-margin">
@@ -240,27 +241,32 @@
     <div class="when-need__grid">
       <div class="when-need-item fadeDown">
         <p class="when-need-item__desc">
-          Впервые выбираете digital-агентство, не понимаете, кому можно довериться и что от вас нужно
+          <span class="when-need-item__text-highlight">
+            Впервые выбираете digital-агентство</span>, не понимаете, кому
+          можно довериться и что от вас нужно
         </p>
       </div>
       <div class="when-need-item fadeDown">
         <p class="when-need-item__desc">
-          Только приступили к разработке сайта: выбрали подрядчика, заполнили бриф и составляете тз
+          <span class="when-need-item__text-highlight">Только приступили к разработке сайта:</span> выбрали подрядчика,
+          заполнили бриф и составляете тз
         </p>
       </div>
       <div class="when-need-item fadeDown">
         <p class="when-need-item__desc">
-          Процесс разработки встрял на месте: что-то делается, но проект не двигается
+          Процесс разработки встрял на месте: что-то делается, но <span class="when-need-item__text-highlight">проект не
+            двигается</span>
         </p>
       </div>
       <div class="when-need-item fadeDown">
         <p class="when-need-item__desc">
-          Агентство обещает рекордные показатели, которых надо ещё чуть-чуть подождать
+          Агентство обещает рекордные показатели, которых надо ещё <span
+            class="when-need-item__text-highlight">чуть-чуть подождать</span>
         </p>
       </div>
       <div class="when-need-item fadeDown">
         <p class="when-need-item__desc">
-          Дедлайны сгорели, бабло потрачено, а сайт не сдан
+          Дедлайны сгорели, бабло потрачено, а <span class="when-need-item__text-highlight">сайт не сдан</span>
         </p>
       </div>
 
@@ -268,6 +274,7 @@
 
   </div>
 </section>
+
       <section class="offer section">
   <picture class="offer__picture">
     <source srcset="img/offer_mob.webp" type="image/webp" media="(max-width: 576px)">
@@ -325,7 +332,7 @@
 
   </div>
 </section>
-      <section class="section how-we-work">
+      <section class="section how-we-work" id="how-we-work">
   <div class="container">
     <div class="section-head section-head--big-margin">
       <h2 class="section-head__title">
@@ -386,7 +393,8 @@
     </div>
   </div>
 </section>
-      <section class="section faq">
+
+      <section class="section faq" id="what-you-do">
   <div class="container">
     <div class="section-head section-head--big-margin">
       <h2 class="section-head__title fadeDown">
@@ -512,6 +520,7 @@
 
   </div>
 </section>
+
       <section class="section section--big-padding main-offer">
   <div class="container container--relative">
     <picture class="main-offer__decor main-offer__decor--1 fadeDown">
@@ -568,7 +577,7 @@
 
   </div>
 </section>
-      <section class="section cases">
+      <section class="section cases" id="cases">
   <div class="container">
     <div class="section-head section-head--big-margin">
       <h2 class="section-head__title fadeDown">
@@ -605,7 +614,7 @@
             Задача — создать современный сайт-витрину, который не будет выглядеть как дешёвый интернет-магазин с кучей
             ошибок. А ещё важно, чтобы этот сайт полностью соответствовал ожиданиям клиента, и все было сделано в срок.
           </div>
-          <button class="slider-default__showmore">Подробнее</button>
+          <button class="slider-default__showmore" data-micromodal-trigger="case-2">Подробнее</button>
         </div>
         <div class="swiper-slide slider-default__slide fadeDown">
           <div class="slider-default__name slider-default__name--margin">Аудит по SEO и контексту для медицинского
@@ -699,11 +708,11 @@
 
   </div>
 </section>
-      <section class="section cases">
+      <section class="section cases" id="reviews">
   <div class="container">
     <div class="section-head section-head--big-margin">
       <h2 class="section-head__title fadeDown">
-        Кейсы
+        Нам доверяют
       </h2>
     </div>
     <div class="swiper slider-default">
@@ -744,69 +753,34 @@
         </div>
         <div class="swiper-slide slider-default__slide fadeDown">
           <div class="slider-default__desc">
-            Мы изначально искали куратора, который поможет нам подобрать подрядчика для разработки красивого
-            и функционального сайта. Ребята сделали всё на высшем уровне — нашли студию, разработавшую сайт, который
-            полностью соответствует нашим ожиданиям. Участие с нашей стороны было минимальным, всего пару часов в месяц.
-            Все этапы были чётко организованы, и мы всегда знали, на каком этапе находимся. Результат превзошёл все наши
-            ожидания, и мы с радостью рекомендуем!
+            Мы столкнулись с ситуацией, когда агентство создавало видимость работы, но не давало реальных результатов.
+            Благодаря вашей честности и вниманию к деталям, вы не только быстро сообщили нам о ситуации, но и подобрали
+            честного партнёра для дальнейшего сотрудничества!
           </div>
           <div class="slider-default__footer">
             <div class="slider-default__name">
-              Ольга Иванова
+              Анна Полякова
             </div>
             <div class="slider-default__pos">
-              Коммерческий директор дистрибьютора сельхозтехники
+              Руководитель отдела маркетинга в мед центре
             </div>
           </div>
         </div>
         <div class="swiper-slide slider-default__slide fadeDown">
           <div class="slider-default__desc">
-            Хотим выразить искреннюю благодарность за ваш профессионализм и терпение. После двух лет ожидания мы были
-            уверены, что придётся сменить подрядчика и начинать разработку заново, но ваша команда смогла выявить слабые
-            места и помогла завершить проект всего за 4 месяца. И мы наконец‑то запустили сайт. Работать с вами было
-            настоящим удовольствием — профессионализм на каждом этапе, оперативность в решении вопросов и внимательное
-            отношение к деталям, а главное — простое и понятное общение с нашим маркетологом.
+            Благодаря команде, с которой мы работали, наши проблемы с мобильной версией сайта были решены в считанные
+            сроки. Мы обратились с жалобой, что мобильная версия не адаптируется под разные устройства и контент, и это
+            серьезно тормозило работу. Студия, которую нам подобрали, полностью переделала мобильную версию, сделав её
+            универсальной и комфортной для пользователей на любых устройствах. Всё работает стабильно, сайт стал удобным
+            и функциональным, как и должно быть. Очень довольны результатом и профессионализмом команды! Спасибо за
+            качественную работу!
           </div>
           <div class="slider-default__footer">
             <div class="slider-default__name">
-              Алексей Пастушенко
+              Илья Кузнецов
             </div>
             <div class="slider-default__pos">
-              Генеральный директор агентства по продаже недвижимости
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide slider-default__slide fadeDown">
-          <div class="slider-default__desc">
-            Мы изначально искали куратора, который поможет нам подобрать подрядчика для разработки красивого
-            и функционального сайта. Ребята сделали всё на высшем уровне — нашли студию, разработавшую сайт, который
-            полностью соответствует нашим ожиданиям. Участие с нашей стороны было минимальным, всего пару часов в месяц.
-            Все этапы были чётко организованы, и мы всегда знали, на каком этапе находимся. Результат превзошёл все наши
-            ожидания, и мы с радостью рекомендуем!
-          </div>
-          <div class="slider-default__footer">
-            <div class="slider-default__name">
-              Ольга Иванова
-            </div>
-            <div class="slider-default__pos">
-              Коммерческий директор дистрибьютора сельхозтехники
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide slider-default__slide fadeDown">
-          <div class="slider-default__desc">
-            Мы изначально искали куратора, который поможет нам подобрать подрядчика для разработки красивого
-            и функционального сайта. Ребята сделали всё на высшем уровне — нашли студию, разработавшую сайт, который
-            полностью соответствует нашим ожиданиям. Участие с нашей стороны было минимальным, всего пару часов в месяц.
-            Все этапы были чётко организованы, и мы всегда знали, на каком этапе находимся. Результат превзошёл все наши
-            ожидания, и мы с радостью рекомендуем!
-          </div>
-          <div class="slider-default__footer">
-            <div class="slider-default__name">
-              Ольга Иванова
-            </div>
-            <div class="slider-default__pos">
-              Коммерческий директор дистрибьютора сельхозтехники
+              Сооснователь бренда одежды
             </div>
           </div>
         </div>
@@ -830,7 +804,7 @@
 
   </div>
 </section>
-      <section class="section price">
+      <section class="section price" id="price">
   <div class="container">
     <div class="section-head section-head--big-margin">
       <h2 class="section-head__title">
@@ -840,7 +814,7 @@
     <div class="price__grid">
       <div class="price-item">
         <div class="price-item__value">
-          <span data-number-animate>50 000</span> ₽
+          <span>50 000</span> ₽
         </div>
         <div class="price-item__name">
           «Базовый контроль»
@@ -858,7 +832,7 @@
       </div>
       <div class="price-item">
         <div class="price-item__value">
-          <span data-number-animate>150 000</span> ₽
+          <span>150 000</span> ₽
         </div>
         <div class="price-item__name">
           «Глубокий аудит»
@@ -877,7 +851,7 @@
       </div>
       <div class="price-item">
         <div class="price-item__value">
-          <span data-number-animate>300 000</span> ₽
+          <span>300 000</span> ₽
         </div>
         <div class="price-item__name">
           «Полный контроль»
@@ -1001,14 +975,15 @@
     <div class="section-footer">
       <div class="section-footer__desc fadeDown">
         Мы не объясняем —
-        <span>
-          <svg width="369" height="73" viewBox="0 0 369 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M270.519 9.29076C223.962 6.72832 116.241 8.56567 49.3111 21.9506C-34.3509 38.6819 6.7711 65.3611 66.3271 64.9089C116.005 64.5317 268.782 65.413 332.911 57.0553M332.911 57.0553C345.664 55.3933 354.911 53.3661 359.144 50.8909C384.668 35.9684 347.8 2.95817 251.376 2.05378C154.952 1.14939 8.89817 11.5499 12.4432 40.9426C15.2792 64.4567 140.3 70.6367 202.455 70.7875C238.378 71.581 311.601 70.7874 332.911 57.0553ZM332.911 57.0553C357.214 41.396 371.197 3.50267 192.529 3.86442"
-              stroke="#35FF90" stroke-width="4" stroke-linecap="round"></path>
-          </svg>
-          мы действуем
-        </span>.
+          <span class="highlighted-text">
+            <svg class="highlight-svg" width="369" height="73" viewBox="0 0 369 73" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M270.519 9.29076C223.962 6.72832 116.241 8.56567 49.3111 21.9506C-34.3509 38.6819 6.7711 65.3611 66.3271 64.9089C116.005 64.5317 268.782 65.413 332.911 57.0553M332.911 57.0553C345.664 55.3933 354.911 53.3661 359.144 50.8909C384.668 35.9684 347.8 2.95817 251.376 2.05378C154.952 1.14939 8.89817 11.5499 12.4432 40.9426C15.2792 64.4567 140.3 70.6367 202.455 70.7875C238.378 71.581 311.601 70.7874 332.911 57.0553ZM332.911 57.0553C357.214 41.396 371.197 3.50267 192.529 3.86442"
+                stroke="#35FF90" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+            мы действуем
+          </span>.
         Вам нужен результат? <br> Тогда оставляйте заявку
 
       </div>
@@ -1016,7 +991,8 @@
 
   </div>
 </section>
-      <section class="section bid">
+
+      <section class="section bid" id="bid">
   <div class="container">
     <div class="section-head">
       <h2 class="section-head__title fadeDown">Оставьте заявку</h2>
@@ -1074,6 +1050,7 @@
     </div>
   </div>
 </section>
+
     </main>
     <footer class="footer">
   <div class="container">
@@ -1201,6 +1178,208 @@
             Все технические проблемы были устранены, требования обновлены, а системы оптимизированы. В итоге — готовый
             сайт, который можно запускать и использовать для решения всех задач компании.
           </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal micromodal-slide" id="case-2" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container modal__container--big" role="dialog" aria-modal="true">
+      <div class="modal__header">
+        <div class="modal__title">
+          Поставщик сельскохозяйственной техники
+        </div>
+        <button class="modal__close" aria-label="Закрыть окно" data-micromodal-close>
+          <svg class="modal__close-icon" data-micromodal-close>
+            <use xlink:href="img/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal__content">
+        <div class="text-content">
+
+          <p>
+            Наш клиент — поставщик сельхозтехники и оборудования, который не просто продаёт железки, а реально заботится
+            о качестве и стремится не отставать от времени. У него есть амбиции не только улучшать качество
+            обслуживания,
+            но и прокачивать своё присутствие на рынке.
+          </p>
+          <p>
+            У него не было времени вникать в проект, поэтому он обратился к нам как к единственному варианту, который
+            найдёт идеального подрядчика и проследит, чтобы все было сделано как надо, без суеты и глупых вопросов.
+          </p>
+          <p>
+            Задача — создать современный сайт-витрину, который не будет выглядеть как дешёвый интернет-магазин с кучей
+            ошибок. А ещё важно, чтобы этот сайт полностью соответствовал ожиданиям клиента, и все было сделано в срок.
+          </p>
+          <h4>
+            Задачи
+          </h4>
+          <ul>
+            <li>
+              Найти агентство, которое сделает сайт, реально подходящий для продажи сельхозтехники.
+            </li>
+            <li>
+              Сайт должен быть удобным, красивым и понятным для клиентов.
+            </li>
+            <li>
+              И найти такую команду, которая полностью возьмёт на себя процесс: от разработки до контроля всех этапов,
+              чтобы возни со сроками не было, а заказчик мог просто расслабиться и не волноваться.
+            </li>
+          </ul>
+          <h4>
+            Решение
+          </h4>
+          <p>
+            Сначала созвонились с клиентом, заполнили бриф и обсудили все детали, чтобы было понятно, что вообще нужно.
+            После этого предложили несколько вариантов подрядчиков, которые максимально подходили под задачу. Клиент
+            доверил нам полный контроль: мы обсудили все ожидания, функционал, целевую аудиторию и создали техзадание
+            для студии. Мы взяли на себя управление проектом на всех этапах: отслеживали сроки, расставляли приоритеты
+            и уточняли детали на созвонах. Кстати, все это — с минимальным вовлечением клиента, чтобы он не тратил свои
+            драгоценные часы. Мы делали всю работу, а он просто наслаждался результатом.
+          </p>
+
+          <h4>Результат</h4>
+          <p>
+            Сайт был завершён вовремя, и клиент был в полном восторге. Его впечатлил тот факт, что ему пришлось
+            потратить
+            на проект всего пару часов в месяц, при этом он мог сосредоточиться на других важных делах, не переживая
+            за каждую деталь. Мы взяли на себя весь процесс — от планирования до реализации — и сделали сотрудничество
+            максимально комфортным и бесперебойным. В итоге клиент получил сайт, который работает как часы,
+            и ему не нужно
+            было тратить время на постоянное участие. Мы все сделали за него.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal micromodal-slide" id="case-3" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container modal__container--big" role="dialog" aria-modal="true">
+      <div class="modal__header">
+        <div class="modal__title">
+          Аудит по SEO и контексту для медицинского центра в Перми
+        </div>
+        <button class="modal__close" aria-label="Закрыть окно" data-micromodal-close>
+          <svg class="modal__close-icon" data-micromodal-close>
+            <use xlink:href="img/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal__content">
+        <div class="text-content">
+          <p>
+            К нам обратился Медицинский центр из Перми, который начал сомневаться, что их старое рекламное агентство
+            вообще когда‑то что‑то делало. Несколько лет они занимались SEO и настраивали контекстную рекламу
+            для центра. Звёзд с неба не хватали, но результаты были, и весьма стабильными. А вот за последний год что‑то
+            пошло не так. Вместо роста заявок — полное затишье.
+
+          </p>
+          <p>
+            Возникли сомнения, а так ли хорошо агентство продвигает сайт и делает ли вообще что‑то?
+          </p>
+          <h4>Задачи</h4>
+          <ul>
+            <li>
+              Оценить текущие результаты SEO и контекстной рекламы. Почему за год не было никакого роста? Что вообще
+              происходит с сайтом, почему не приходит больше людей?
+            </li>
+            <li>
+              Проверить методы работы агентства. Насколько эффективно они настраивают SEO (оптимизация сайта, создание
+              контента, исправление ошибок) и контекстную рекламу (таргетинг, настройка бюджет)?
+            </li>
+            <li>
+              Проанализировать, в чем же реально проблема. Это агентство не тянет, или есть другие причины — например,
+              конкуренция или внутренние проблемы сайта?
+            </li>
+            <li>
+              Принять решение: продолжать работать с этим агентством или найти нового партнёра, который действительно
+              сможет
+              обеспечить результаты.
+            </li>
+          </ul>
+
+          <h4>Решение</h4>
+          <p>
+            Мы сделали аудит всего процесса: проанализировали SEO, контекстную рекламу, запросили отчёты. И что мы
+            выяснили? Агентство последние 3 года имитировало бурную деятельность. Все действия — на «галочку», а отчёты
+            с «красивыми» цифрами — на самом деле накручены ботами. На отчётных датах они просто подставляли цифры,
+            чтобы клиенты радовались мнимым результатам. Реальных улучшений, конечно, не было. Просто пустая трата
+            времени
+            и денег.
+          </p>
+          <h4>Результат</h4>
+          <p>
+            Мы не стали тянуть и сразу рассказали клиенту правду.
+            Подобрали другую проверенную студию, которая взялась за дело по‑настоящему. Уже через два месяца работы
+            с новым подрядчиком, мы начали видеть реальные улучшения и заметный рост заявок.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal micromodal-slide" id="case-4" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container modal__container--big" role="dialog" aria-modal="true">
+      <div class="modal__header">
+        <div class="modal__title">
+          Бренд одежды из Санкт-Петербурга
+        </div>
+        <button class="modal__close" aria-label="Закрыть окно" data-micromodal-close>
+          <svg class="modal__close-icon" data-micromodal-close>
+            <use xlink:href="img/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal__content">
+        <div class="text-content">
+          <p>
+            К нам обратился бренд одежды из Санкт-Петербурга с историей, как агентство обещало качественный продукт,
+            а в итоге сдало мобильную версию сайта, которая работает, как если бы её делала обезьяна с клавиатурой.
+            Проект
+            закрыли, все, казалось бы, сдано, но сайт — полный провал. Он «работает», но так, что, скорее, тормозит
+            бизнес, чем помогает. Ну и классика жанра — все, что осталось после сдачи, — это бессмысленные обещания
+            и куча
+            багов.
+          </p>
+          <h4>Задачи</h4>
+          <ul>
+            <li>
+              Разобраться, почему мобильная версия сайта работает, как старая Nokia, и почему всё так тормозит.
+            </li>
+            <li>
+              Найти, где конкретно закрались косяки, и выяснить, как это починить без лишних затрат и головной боли.
+            </li>
+            <li> Сделать так, чтобы сайт наконец‑то заработал, как должно быть, и клиент не потерял доверие из-за этого
+              технического фиаско.</li>
+
+          </ul>
+
+          <h4>Решение</h4>
+          <p>
+            Мы провели аудит и сразу поняли, что мобильная версия — это просто катастрофа. Вёрстка вообще
+            не адаптировалась под устройства, операционки и разные типы контента. Всё менялось на десктопной версии,
+            а вот мобильную даже не тестировали — как результат, сайт не выдержал наплыва трафика, 1С падала, а сам сайт
+            вечно лежал. Это не сайт, а настоящее поле битвы для пользователей.
+          </p>
+          <h4>Результат</h4>
+          <p>
+            Мы разобрались в проблемах и нашлю студию, которая переделала мобильную версию так, чтобы она адекватно
+            адаптировалась под любые устройства, операционки и контент. Изменения теперь тестируются на ходу, а сайт
+            больше не падает при наплыве трафика. 1С больше не отваливается, а сам сайт работает как швейцарские часы.
+          </p>
+
         </div>
       </div>
 
