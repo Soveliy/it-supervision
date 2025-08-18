@@ -61,13 +61,13 @@ export const validateForms = (selector, rules, checkboxes = [], afterSend) => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           if (afterSend) {
-            afterSend();
           }
           console.log("Отправлено");
         }
       }
     };
-
+    console.log("q");
+    afterSend();
     xhr.open("POST", "mail.php", true);
     xhr.send(formData);
 

@@ -31095,6 +31095,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_burger_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/burger.js */ "./src/js/components/burger.js");
 /* harmony import */ var _components_validation_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/validation.js */ "./src/js/components/validation.js");
 /* harmony import */ var _components_animation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/animation.js */ "./src/js/components/animation.js");
+/* harmony import */ var _components_file_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/file.js */ "./src/js/components/file.js");
+
 
 
 
@@ -31212,16 +31214,12 @@ headerTl.fromTo(".header", {
 const howDist = document.querySelector(".how-we-work__grid");
 let howDistWidth = howDist.offsetWidth;
 let amountToScroll = howDistWidth - window.innerWidth;
-console.log(amountToScroll);
 function getScrollAmount() {
   let howDistWidth = howDist.scrollWidth;
-  console.log(howDistWidth);
-  console.log(window.innerWidth);
   let containerOffset = 0;
   if (window.innerWidth > 1720) {
     containerOffset = window.innerWidth - 1720;
   }
-  console.log(containerOffset);
   return -(howDistWidth - window.innerWidth + containerOffset);
 }
 const tween = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(howDist, {
@@ -31404,6 +31402,123 @@ if (burger && menu) {
 
 /***/ }),
 
+/***/ "./src/js/components/file.js":
+/*!***********************************!*\
+  !*** ./src/js/components/file.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function initFileWidgets() {
+  let root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
+  const containers = root.querySelectorAll("[data-file]");
+  containers.forEach(container => {
+    if (container.__fileInited) return; // защита от повторной инициализации
+    container.__fileInited = true;
+    const input = container.querySelector('input[type="file"]');
+    if (!input) return;
+
+    // ищем label и span с текстом
+    const label = container.querySelector(`label[for="${input.id}"]`) || container.querySelector("label");
+
+    // допускаем разные варианты класса; главное — наличие [data-file-text] или сам текст
+    const textSpan = container.querySelector(".form-file__text") || container.querySelector(".form__file-text") || container.querySelector("[data-file-text]");
+    if (!textSpan) return;
+    const defaultText = textSpan.getAttribute("data-file-text") || textSpan.textContent.trim();
+    function updateUI(file) {
+      if (file) {
+        textSpan.textContent = file.name;
+        ensureRemoveBtn();
+        container.classList.add("has-file");
+      } else {
+        textSpan.textContent = defaultText;
+        removeRemoveBtn();
+        container.classList.remove("has-file");
+      }
+    }
+    function ensureRemoveBtn() {
+      if (container.querySelector(".form__file-remove")) return;
+      const svgNS = "http://www.w3.org/2000/svg";
+      const xlinkNS = "http://www.w3.org/1999/xlink";
+      const svg = document.createElementNS(svgNS, "svg");
+      svg.setAttribute("class", "form__file-remove");
+      // немного доступности, чтобы по Enter/Space тоже удалять
+      svg.setAttribute("role", "button");
+      svg.setAttribute("tabindex", "0");
+      const use = document.createElementNS(svgNS, "use");
+      use.setAttributeNS(xlinkNS, "xlink:href", "img/sprite.svg#close");
+      svg.appendChild(use);
+      textSpan.insertAdjacentElement("afterend", svg);
+      const onRemove = e => {
+        e.preventDefault();
+        input.value = ""; // очистка выбранного файла
+        updateUI(null);
+      };
+      svg.addEventListener("click", onRemove);
+      svg.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onRemove(e);
+        }
+      });
+    }
+    function removeRemoveBtn() {
+      const btn = container.querySelector(".form__file-remove");
+      if (btn) btn.remove();
+    }
+
+    // выбор через диалог
+    input.addEventListener("change", () => {
+      const file = input.files && input.files[0];
+      updateUI(file || null);
+    });
+
+    // Drag & Drop — на label (если есть), иначе на весь контейнер
+    const dndTarget = label || container;
+    ["dragenter", "dragover"].forEach(type => {
+      dndTarget.addEventListener(type, e => {
+        e.preventDefault();
+        e.stopPropagation();
+        container.classList.add("is-dragover");
+      });
+    });
+    ["dragleave", "dragend", "drop"].forEach(type => {
+      dndTarget.addEventListener(type, e => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (type !== "drop") container.classList.remove("is-dragover");
+      });
+    });
+    dndTarget.addEventListener("drop", e => {
+      const dt = e.dataTransfer;
+      if (dt && dt.files && dt.files.length) {
+        // назначаем файлы инпуту (современные браузеры поддерживают)
+        input.files = dt.files;
+        input.dispatchEvent(new Event("change", {
+          bubbles: true
+        }));
+      }
+      container.classList.remove("is-dragover");
+    });
+
+    // сброс формы — вернуть исходный текст и убрать иконку
+    const form = input.closest("form");
+    if (form) {
+      form.addEventListener("reset", () => {
+        // небольшой таймаут, чтобы сброс значения инпута отработал
+        setTimeout(() => updateUI(null));
+      });
+    }
+
+    // начальное состояние
+    updateUI(input.files && input.files[0] ? input.files[0] : null);
+  });
+}
+initFileWidgets();
+
+/***/ }),
+
 /***/ "./src/js/components/hero_slider.js":
 /*!******************************************!*\
   !*** ./src/js/components/hero_slider.js ***!
@@ -31433,16 +31548,19 @@ var typed = new typed_js__WEBPACK_IMPORTED_MODULE_0__["default"](".hero__slide",
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vanilla_marquee__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vanilla-marquee */ "./node_modules/vanilla-marquee/dist/vanilla-marquee.js");
 
-// todo replace to gsap marquee
 window.addEventListener("load", () => {
   new vanilla_marquee__WEBPACK_IMPORTED_MODULE_0__["default"](document.querySelector("[data-marq-left]"), {
     speed: 100,
-    pauseOnHover: true
+    pauseOnHover: true,
+    duplicated: true,
+    startVisible: true
   });
   new vanilla_marquee__WEBPACK_IMPORTED_MODULE_0__["default"](document.querySelector("[data-marq-right]"), {
     speed: 100,
     direction: "right",
-    pauseOnHover: true
+    pauseOnHover: true,
+    duplicated: true,
+    startVisible: true
   });
 });
 
@@ -31456,12 +31574,7 @@ window.addEventListener("load", () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var micromodal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
 
-micromodal__WEBPACK_IMPORTED_MODULE_0__["default"].init({
-  disableScroll: true,
-  disableFocus: true
-});
 
 /***/ }),
 
@@ -31508,7 +31621,28 @@ var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".slider-default
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
+/* harmony import */ var micromodal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
 
+
+micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].init({
+  disableScroll: true,
+  disableFocus: true,
+  onClose: modalEl => {
+    const form = modalEl.querySelector(".form--modal");
+    if (form) {
+      // Сброс значений
+      form.reset();
+
+      // Сброс маски телефона (опционально)
+      const tel = form.querySelector('input[type="tel"]');
+      if (tel?.inputmask) tel.inputmask.setValue("");
+
+      // Удаляем артефакты JustValidate
+      form.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
+      form.querySelectorAll(".just-validate-error-label, .js-validate-error-label").forEach(el => el.remove());
+    }
+  }
+});
 const rules1 = [{
   ruleSelector: ".form__input--name",
   rules: [{
@@ -31529,10 +31663,47 @@ const rules1 = [{
     errorMessage: "Заполните телефон!"
   }]
 }];
+const rules2 = [{
+  ruleSelector: "#b-name",
+  rules: [{
+    rule: "minLength",
+    value: 3
+  }, {
+    rule: "required",
+    value: true,
+    errorMessage: "Заполните имя!"
+  }]
+}, {
+  ruleSelector: "#b-email",
+  rules: [{
+    rule: "minLength",
+    value: 3
+  }, {
+    rule: "required",
+    value: true,
+    errorMessage: "Заполните имя!"
+  }, {
+    rule: "email"
+  }]
+}, {
+  ruleSelector: "#b-phone",
+  tel: true,
+  telError: "Введите корректный телефон",
+  rules: [{
+    rule: "required",
+    value: true,
+    errorMessage: "Заполните телефон!"
+  }]
+}];
 const afterForm = () => {
-  console.log("Произошла отправка, тут можно писать любые действия");
+  micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].close("callback");
+  micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].show("thanks");
+  setTimeout(() => {
+    micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].close("thanks");
+  }, 5000);
 };
-(0,_functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_0__.validateForms)(".form--modal", rules1, afterForm);
+(0,_functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_0__.validateForms)(".form--modal", rules1, [], afterForm);
+(0,_functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_0__.validateForms)(".bid__form", rules2, [], afterForm);
 
 /***/ }),
 
@@ -31602,13 +31773,13 @@ const validateForms = function (selector, rules) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          if (afterSend) {
-            afterSend();
-          }
+          if (afterSend) {}
           console.log("Отправлено");
         }
       }
     };
+    console.log("q");
+    afterSend();
     xhr.open("POST", "mail.php", true);
     xhr.send(formData);
     ev.target.reset();

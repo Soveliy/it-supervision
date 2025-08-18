@@ -1,10 +1,14 @@
 @use "./mixins/breakpoint" as *;
 @use "./mixins/disable-mob-hover" as *;
 .bid {
+  &__left {
+    max-width: 700px;
+  }
   &__row {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     margin-top: 1rem;
+    gap: 2.5rem;
     @include tablet {
       display: flex;
       flex-direction: column-reverse;
@@ -12,18 +16,23 @@
     }
   }
   &__image {
+    position: relative;
+    height: clamp(25rem, 23.1855rem + 8.0645vw, 31.25rem);
+    picture {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    img {
+      object-fit: none;
+      max-width: inherit;
+      object-fit: inherit;
+    }
     @include tablet {
       display: none;
     }
   }
-  &__image {
-    img {
-      margin-left: -100px;
-      @include big-desktop {
-        margin-left: -15px;
-      }
-    }
-  }
+
   &__links {
     display: flex;
     flex-direction: column;

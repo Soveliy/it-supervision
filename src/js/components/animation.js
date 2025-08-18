@@ -95,16 +95,12 @@ headerTl
 const howDist = document.querySelector(".how-we-work__grid");
 let howDistWidth = howDist.offsetWidth;
 let amountToScroll = howDistWidth - window.innerWidth;
-console.log(amountToScroll);
 function getScrollAmount() {
   let howDistWidth = howDist.scrollWidth;
-  console.log(howDistWidth);
-  console.log(window.innerWidth);
   let containerOffset = 0;
   if (window.innerWidth > 1720) {
     containerOffset = window.innerWidth - 1720;
   }
-  console.log(containerOffset);
   return -(howDistWidth - window.innerWidth + containerOffset);
 }
 const tween = gsap.to(howDist, {

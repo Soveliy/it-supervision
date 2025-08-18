@@ -997,15 +997,15 @@
     <div class="section-head">
       <h2 class="section-head__title fadeDown">Оставьте заявку</h2>
       <p class="section-head__desc fadeDown">
-        Частые вопросы о нашем контроле за подрядчиками
+        Решим все ваши it-проблемы
       </p>
     </div>
     <div class="bid__row">
       <div class="bid__left">
         <div class="bid__image fadeDown">
           <picture>
-            <source srcset="img/form_bg.webp" type="image/webp" />
-            <img loading="lazy" src="img/form_bg.png" class="image" width="" height="" alt="" />
+            <source srcset="img/form_bg-new.webp" type="image/webp" />
+            <img loading="lazy" src="img/form_bg-new.png" class="image" width="" height="" alt="" />
           </picture>
         </div>
         <div class="bid__links">
@@ -1013,31 +1013,35 @@
           <a class="bid__link fadeDown" href="mailto:pochta@yandex.ru">pochta@yandex.ru</a>
         </div>
       </div>
-      <form action="#" class="form">
+      <form action="#" class="form bid__form">
         <div class="form__wrap fadeDown">
           <div class="form__item">
-            <input type="text" name="name" placeholder=" " class="form__input" />
-            <label class="form__input-placeholder" for="">Имя или компания</label>
+            <input id="b-name" type="text" name="name" placeholder=" " class="form__input" />
+            <label class="form__input-placeholder" for="b-name">Имя или компания</label>
           </div>
           <div class="form__item">
-            <input type="tel" name="phone" placeholder=" " class="form__input" />
-            <label class="form__input-placeholder" for="">Телефон</label>
+            <input id="b-phone" type="tel" name="phone" placeholder=" " class="form__input" />
+            <label class="form__input-placeholder" for="b-phone">Телефон</label>
           </div>
           <div class="form__item">
-            <input type="email" name="email" placeholder=" " class="form__input" />
-            <label class="form__input-placeholder" for="">Почта</label>
+            <input id="b-email" type="email" name="email" placeholder=" " class="form__input" />
+            <label class="form__input-placeholder" for="b-email">Почта</label>
           </div>
           <div class="form__item">
-            <input type="text" name="comment" placeholder=" " class="form__input" />
-            <label class="form__input-placeholder" for="">Расскажите о проблеме</label>
+            <input id="b-text" type="text" name="comment" placeholder=" " class="form__input" />
+            <label class="form__input-placeholder" for="b-text">Расскажите о проблеме</label>
           </div>
-          <label class="form__file form__file--big-margin">
-            <input type="file" />
-            <svg class="form__file-icon">
-              <use xlink:href="img/sprite.svg#file"></use>
-            </svg>
-            Прикрепить файл
-          </label>
+          <div class="form__file-container form__file-container--big-margin" data-file>
+            <input id="b-file" type="file" />
+            <label for="b-file" class="form__file form__file">
+
+              <svg class="form__file-icon">
+                <use xlink:href="img/sprite.svg#file"></use>
+              </svg>
+              <span class="form-file__text" data-file-text="Прикрепить файл">Прикрепить файл</span>
+            </label>
+          </div>
+
           <button class="form__button form__button--big-margin button">
             Заказать звонок
           </button>
@@ -1050,7 +1054,6 @@
     </div>
   </div>
 </section>
-
     </main>
     <footer class="footer">
   <div class="container">
@@ -1101,14 +1104,17 @@
               <input type="text" name="comment" placeholder=" " id="comment" class="form__input" />
               <label class="form__input-placeholder" for="comment">Расскажите о проблеме</label>
             </div>
-            <label class="form__file form__file--default">
-              <input type="file" />
-              <svg class="form__file-icon">
-                <use xlink:href="img/sprite.svg#file"></use>
-              </svg>
-              Прикрепить файл
-            </label>
-            <button class="form__button form__button--big-margin button">
+            <div class="form__file-container form__file-container--default" data-file>
+              <input id='form-file' type="file" />
+              <label for='form-file' class="form__file">
+                <svg class="form__file-icon">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+                <span class="form-file__text" data-file-text="Прикрепить файл">Прикрепить файл</span>
+              </label>
+            </div>
+
+            <button class="form__button form__button--w100 form__button--big-margin button">
               Заказать звонок
             </button>
             <div class="form__policy">
@@ -1118,6 +1124,18 @@
           </div>
         </form>
       </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal micromodal-slide" id="thanks" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container modal__container--thanks" role="dialog" aria-modal="true">
+      <div class="modal__title">
+        Успешно!
+      </div>
+      <div class="modal__desc"> Ваша заявка принята в работу</div>
 
     </div>
   </div>

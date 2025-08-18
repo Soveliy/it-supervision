@@ -1,14 +1,18 @@
 .modal {
   &__container {
-    padding: 2.5rem;
-    border-radius: 2.5rem;
+    padding: clamp(1.25rem, 0.8871rem + 1.6129vw, 2.5rem);
+    border-radius: clamp(1.25rem, 0.8871rem + 1.6129vw, 2.5rem);
     width: 96%;
     box-sizing: border-box;
     &--lit {
-      max-width: 918px;
+      max-width: 57.375rem;
     }
     &--big {
-      max-width: 1200px;
+      max-width: 75rem;
+    }
+    &--thanks {
+      max-width: 25.4375rem;
+      background-color: var(--green-base);
     }
   }
   &__close {
@@ -24,14 +28,17 @@
   &__close-icon {
     height: 100%;
     width: 100%;
-    stroke: var(--black);
+    fill: var(--black);
   }
   &__title {
-    font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
+    font-size: clamp(1.5rem, 1.3548rem + 0.6452vw, 2rem);
     font-weight: 400;
     color: var(--black);
   }
   &__header {
-    margin-bottom: 2.5rem;
+    margin-bottom: clamp(1.5625rem, 1.2903rem + 1.2097vw, 2.5rem);
+  }
+  &__desc {
+    margin-top: 0.75rem;
   }
 }
