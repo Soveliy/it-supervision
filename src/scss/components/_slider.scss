@@ -30,6 +30,15 @@
     //     margin-bottom: 12px;
     //   }
     // }
+    &--margin {
+      transition: 0.3s;
+      @include hover {
+        &:hover {
+          color: var(--green-dark);
+          cursor: pointer;
+        }
+      }
+    }
   }
   &__desc {
     font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);

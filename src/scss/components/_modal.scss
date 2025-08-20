@@ -11,10 +11,9 @@
     }
     &--big {
       max-width: 75rem;
-      @include tablet {
-        display: flex;
-        flex-direction: column;
-      }
+      display: flex;
+      flex-direction: column;
+      max-height: 90vh;
     }
     &--thanks {
       max-width: 25.4375rem;
