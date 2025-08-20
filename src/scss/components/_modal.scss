@@ -24,6 +24,9 @@
   &__content {
     height: 100%;
     overflow-y: auto;
+    &--visibile {
+      overflow: visible;
+    }
   }
   &__close {
     height: 40px;

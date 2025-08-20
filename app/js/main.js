@@ -31760,6 +31760,7 @@ const afterForm = () => {
   micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].close("callback");
   micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].show("thanks");
   setTimeout(() => {
+    document.querySelector("body").removeAttribute("style");
     micromodal__WEBPACK_IMPORTED_MODULE_1__["default"].close("thanks");
   }, 5000);
 };

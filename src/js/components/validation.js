@@ -103,6 +103,7 @@ const afterForm = () => {
   MicroModal.close("callback");
   MicroModal.show("thanks");
   setTimeout(() => {
+    document.querySelector("body").removeAttribute("style");
     MicroModal.close("thanks");
   }, 5000);
 };

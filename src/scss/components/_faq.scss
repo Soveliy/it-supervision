@@ -4,7 +4,7 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // align-items: flex-start;
+    align-items: flex-start;
     gap: 1.25rem;
     @include mobile {
       grid-template-columns: 1fr;

@@ -1118,6 +1118,9 @@ a {
   display: grid;
   -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2, 1fr);
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   gap: 1.25rem;
 }
 @media (max-width: 576px) {
@@ -1889,6 +1892,9 @@ a {
 .modal__content {
   height: 100%;
   overflow-y: auto;
+}
+.modal__content--visibile {
+  overflow: visible;
 }
 .modal__close {
   height: 40px;
