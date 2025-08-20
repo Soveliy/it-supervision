@@ -1893,7 +1893,7 @@ a {
   height: 100%;
   overflow-y: auto;
 }
-.modal__content--visibile {
+.modal__content--visible {
   overflow: visible;
 }
 .modal__close {
