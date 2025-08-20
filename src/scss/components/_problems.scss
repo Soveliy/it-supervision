@@ -1,9 +1,13 @@
 @use "./mixins/breakpoint" as *;
+@use "./mixins/disable-mob-hover" as *;
 .problems {
   &__wrap {
-    @include mobile {
-      border-radius: 20px;
-      background-color: var(--green-base);
+    position: relative;
+    @include tablet {
+      height: 52dvh;
+      z-index: 500;
+      max-width: 576px;
+      margin: 0 auto;
     }
   }
   &-item {
@@ -16,6 +20,16 @@
     padding: 40px 80px;
     min-height: 280px;
     transition: 0.3s;
+    @include tablet {
+      position: absolute;
+      padding: 20px;
+      min-height: 120px;
+      width: 100%;
+      border-radius: 20px;
+      &.js-active {
+        background-color: var(--green-base);
+      }
+    }
     &:last-child {
       position: absolute;
       bottom: 0;
@@ -23,44 +37,50 @@
       width: 100%;
       padding: 70px 80px;
       min-height: 150px;
+      @include tablet {
+        position: static;
+        padding: 20px;
+        min-height: inherit;
+      }
       .problems-item__content {
         max-height: 32px;
+        @include tablet {
+          max-height: inherit;
+        }
       }
     }
-    &:hover {
-      // transform: translateY(-50px);
-      // z-index: 50;
-      background-color: var(--green-base);
-      transform: translateY(-40px);
-      .problems-item__content {
-        opacity: 1;
-      }
+    @include hover {
+      &:hover {
+        background-color: var(--green-base);
+        transform: translateY(-40px);
+        .problems-item__content {
+          opacity: 1;
+        }
 
-      ~ .problems-item {
-        z-index: 50;
+        ~ .problems-item {
+          z-index: 50;
+        }
+        .problems-item__title:not(.problems-item__title--invisible) {
+          opacity: 0;
+        }
       }
-      .problems-item__title:not(.problems-item__title--invisible) {
-        opacity: 0;
-      }
-      // .problems-item__content {
-      //   max-height: 500px;
-      //   opacity: 1;
-      // }
     }
     &:last-child {
-      &:hover {
-        // todo anim
-        transform: none;
-        // min-height: 240px;
-        // transform: translateY(-40px);
-        .problems-item__content {
-          max-height: 500px;
+      @include hover {
+        &:hover {
+          // todo anim
+          transform: none;
+          // min-height: 240px;
+          // transform: translateY(-40px);
+          .problems-item__content {
+            max-height: 500px;
+          }
         }
       }
     }
     @include mobile {
       border-radius: 20px;
-      background-color: var(--green-base);
+      // background-color: var(--green-base);
     }
     &__title {
       font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);
@@ -68,24 +88,44 @@
       transition: 0.3s;
       &:not(.problems-item__title--invisible) {
         position: absolute;
+        @include tablet {
+          position: relative;
+        }
       }
-      // &--invisible {
-      //   display: none;
-      // }
+
+      &--invisible {
+        @include tablet {
+          display: none;
+        }
+      }
     }
     &__desc {
       margin-top: 7px;
       font-family: var(--font-family);
       font-weight: 400;
-      font-size: 24px;
+      font-size: clamp(0.875rem, 0.6837rem + 0.8163vw, 1.5rem);
       color: var(--black);
     }
     &__content {
       opacity: 0;
       transition: 0.3s;
+      @include tablet {
+        opacity: 1;
+      }
     }
     & + & {
       margin-top: -155px;
+      @include tablet {
+        margin-top: 12px;
+      }
+    }
+    @include tablet {
+      &.is-stacked {
+        background-color: var(--green-base);
+        &:not(:first-child) {
+          // transform: translateY(-50px) !important;
+        }
+      }
     }
   }
 }

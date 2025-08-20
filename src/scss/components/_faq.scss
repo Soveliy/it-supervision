@@ -47,7 +47,7 @@
     }
     &__body {
       position: relative;
-      top: -20px;
+      top: -2.5rem;
       box-sizing: border-box;
       max-height: 0;
       opacity: 0;
@@ -57,7 +57,7 @@
       line-height: normal;
       padding: 0 clamp(1.25rem, 0.102rem + 4.898vw, 5rem);
       @include mobile {
-        top: -10px;
+        top: -1.25rem;
       }
       > *:first-child {
         margin-top: 0;
@@ -79,7 +79,7 @@
     }
     &.js-active {
       .faq-item__body {
-        padding-bottom: 20px;
+        // padding-bottom: 20px;
         max-height: 62.5rem;
         opacity: 1;
       }

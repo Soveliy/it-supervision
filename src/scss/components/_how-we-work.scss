@@ -6,13 +6,17 @@
     display: flex;
     // overflow: auto;
     width: fit-content;
-    gap: 40px;
+    gap: 2.5rem;
     counter-reset: item;
   }
   &-item {
-    min-width: 503px;
-    max-width: 503px;
+    min-width: 31.4375rem;
+    max-width: 31.4375rem;
     flex-shrink: 0;
+    @include tablet {
+      max-width: 18rem;
+      min-width: inherit;
+    }
     &:before {
       counter-increment: item;
       content: "0" counter(item) "/";
@@ -40,5 +44,13 @@
     left: 0;
     z-index: -1;
     width: 100%;
+    @include tablet {
+      transform: none;
+      top: 7.1875rem;
+    }
+    @include mobile {
+      width: auto;
+      top: 4rem;
+    }
   }
 }

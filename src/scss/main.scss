@@ -34,16 +34,29 @@
 .experts-item__title span {
   transition: color 0.3s;
 }
-
+.experts-item__title:not(:hover) {
+  span {
+    transition-delay: none !important;
+    transition: 0.3s !important;
+  }
+}
 .experts-item__title.active span {
-  color: var(--green-base); /* акцентный цвет при ховере */
+  color: var(--green-base);
 }
 
 .experts-item__title span {
-  /* Для эффекта волны */
   transition-property: color;
 }
 
-.experts-item__title span {
-  /* Каждая буква — отдельный delay через JS */
+.text-content {
+  font-size: clamp(0.875rem, 0.7219rem + 0.6531vw, 1.375rem);
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+  h4 {
+    margin-bottom: -1rem;
+  }
 }

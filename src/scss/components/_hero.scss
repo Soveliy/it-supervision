@@ -27,6 +27,8 @@
     //   position: static;
     // }
     img {
+      height: auto;
+      width: auto;
       @include big-desktop {
         max-width: 65%;
       }

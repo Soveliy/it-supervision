@@ -4,6 +4,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    @include tablet {
+      display: flex;
+      gap: 0;
+    }
   }
   &-item {
     min-height: 14.75rem;
@@ -12,6 +16,13 @@
     padding: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
     box-sizing: border-box;
     border-radius: clamp(1.25rem, 0.8673rem + 1.6327vw, 2.5rem);
+    @include tablet {
+      height: auto;
+      max-width: 18rem;
+      width: 100%;
+      flex-shrink: 0;
+      min-height: inherit;
+    }
     &__desc {
       margin: 0;
       font-size: clamp(1rem, 0.6939rem + 1.3061vw, 2rem);

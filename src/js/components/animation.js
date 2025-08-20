@@ -92,6 +92,57 @@ headerTl
     "-=0.8"
   );
 
+const mm = gsap.matchMedia();
+
+mm.add("(max-width: 1024px)", () => {
+  const cards = document.querySelectorAll(".problems-item");
+  const header = document.querySelector(".header");
+  const tl = gsap.timeline();
+  const yOffsets = [0, 30, 70, 120, 190];
+  const lastOffset = yOffsets.at(-1);
+  const EPS = 0.0001;
+
+  cards.forEach((card, index) => {
+    const dur = index * 0.5;
+
+    if (index > 0) {
+      gsap.set(card, { y: index * 132 });
+
+      tl.to(
+        card,
+        {
+          y: yOffsets[index] ?? lastOffset,
+          duration: dur,
+          ease: "none",
+          onComplete: () => card.classList.add("is-stacked"),
+          onReverseComplete: () => card.classList.remove("is-stacked"),
+        },
+        0
+      );
+    } else {
+      tl.to(
+        card,
+        {
+          duration: Math.max(dur, EPS),
+          onComplete: () => card.classList.add("is-stacked"),
+          onReverseComplete: () => card.classList.remove("is-stacked"),
+        },
+        0
+      );
+    }
+  });
+
+  ScrollTrigger.create({
+    trigger: ".problems",
+    start: "top top",
+    pin: true,
+    end: `+=${cards.length * 200 + header.offsetHeight}`,
+    scrub: true,
+    animation: tl,
+    // markers: true,
+  });
+});
+
 const howDist = document.querySelector(".how-we-work__grid");
 let howDistWidth = howDist.offsetWidth;
 let amountToScroll = howDistWidth - window.innerWidth;
@@ -147,6 +198,7 @@ gsap.to(path2, {
   strokeWidth: 20,
   ease: "none",
 });
+
 const sections = gsap.utils.toArray(".section");
 sections.forEach((section) => {
   const defaultAnimElems = section.querySelectorAll(".fadeDown");
@@ -235,9 +287,6 @@ document.querySelectorAll("[data-number-animate]").forEach((el) => {
 });
 
 document.querySelectorAll(".experts-item__title").forEach((el) => {
-  // Сохраняем оригинальный HTML
-
-  // todo remove green light on mouse leave
   const nodes = Array.from(el.childNodes);
   el.innerHTML = "";
   nodes.forEach((node) => {
