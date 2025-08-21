@@ -708,6 +708,8 @@ a {
     min-height: 120px;
     width: 100%;
     border-radius: 20px;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
   }
   .problems-item.js-active {
     background-color: var(--green-base);
