@@ -98,7 +98,7 @@ mm.add("(max-width: 1024px)", () => {
   const cards = document.querySelectorAll(".problems-item");
   const header = document.querySelector(".header");
   const tl = gsap.timeline();
-  const yOffsets = [0, 30, 70, 120, 190];
+  const yOffsets = [0, 30, 70, 115, 190];
   const lastOffset = yOffsets.at(-1);
   const EPS = 0.0001;
 
